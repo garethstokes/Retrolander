@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'lander' target in the 'lander' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+	#import <UIKit/UIKit.h>
+#endif
