@@ -39,14 +39,16 @@
 
 - (void) draw
 {
-	[_player draw:_worldSpace];
-	
 	for(int i = 0; i < _groundPoints.count - 1; i++)
   {
 		ccDrawLine([[_groundPoints objectAtIndex:i] CGPointValue], 
                [[_groundPoints objectAtIndex:i + 1] CGPointValue]); 
 	}
-  
+	
+	[_player draw:_worldSpace];
+	
+	[_landingPad draw:_worldSpace];
+	
   [_label setString:[NSString stringWithFormat:@"Crashed Status: %s, Landed Status: %s", 
                                                [_player hasCrashed] ? "YES" : "NO", 
                                                [_player hasLanded] ? "YES" : "NO"]];

@@ -23,6 +23,7 @@
 @property (nonatomic) BOOL isThrusting;
 @property (nonatomic) cpShape *shape;
 @property (nonatomic) cpShape *flame;
+@property (nonatomic) cpShape *booster;
 
 - (void) disableThrusting;
 - (void) setAngle:(cpFloat)value;

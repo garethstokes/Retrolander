@@ -192,8 +192,7 @@ static const GLfloat pillVAR[] = {
 };
 static const int pillVAR_count = sizeof(pillVAR)/sizeof(GLfloat)/3;
 
-static void
-drawSegmentShape(cpBody *body, cpSegmentShape *seg, cpSpace *space)
+void drawSegmentShape(cpBody *body, cpSegmentShape *seg, cpSpace *space)
 {
 	cpVect a = seg->ta;
 	cpVect b = seg->tb;
@@ -259,10 +258,10 @@ drawPolyShape(cpBody *body, cpPolyShape *poly, cpSpace *space)
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	
 	
-	//if(!poly->shape.sensor){
+	if(!poly->shape.sensor){
 		glColor_for_shape((cpShape *)poly, space);
 		glDrawArrays(GL_TRIANGLE_FAN, 0, count);
-	//}
+	}
 	
 	glColor4f(LINE_COLOR);
 	glDrawArrays(GL_LINE_LOOP, 0, count);

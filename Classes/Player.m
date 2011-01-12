@@ -29,6 +29,7 @@ drawSpaceOptions _options = {
 @synthesize isThrusting=_isThrusting;
 @synthesize shape=_shape;
 @synthesize flame=_flame;
+@synthesize booster=_booster;
 
 - (id) initWith:(cpSpace*)worldSpace
 {
@@ -71,13 +72,46 @@ drawSpaceOptions _options = {
 
 - (void) draw:(cpSpace *)space
 {
-	drawSpace(space, &_options);
+	// Default GL states: GL_TEXTURE_2D, GL_VERTEX_ARRAY, GL_COLOR_ARRAY, GL_TEXTURE_COORD_ARRAY
+	// Needed states:  GL_VERTEX_ARRAY, 
+	// Unneeded states: GL_TEXTURE_2D, GL_COLOR_ARRAY, GL_TEXTURE_COORD_ARRAY
+	glDisable(GL_TEXTURE_2D);
+	glDisableClientState(GL_COLOR_ARRAY);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	
 	//draw the ship
-	
+	cpPolyShape *poly = (cpPolyShape *)_shape;
+	glVertexPointer(2, GL_FLOAT, 0, poly->tVerts);
+	glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+	glDrawArrays(GL_TRIANGLE_FAN, 0, poly->numVerts);
+
 	//draw the flame
+	glPushMatrix();
 	
 	
+	
+	
+	if (_isThrusting)	{
+		glColor4f(0.93359375f, 1.0f, 0.234375f, 1.0f);
+		poly = (cpPolyShape *)_booster;
+	}else {
+		glColor4f(0.93359375f, 0.7109375f, 0.234375f, 1.0f);
+		poly = (cpPolyShape *)_flame;
+	}
+
+  glVertexPointer(2, GL_FLOAT, 0, poly->tVerts);
+	glDrawArrays(GL_TRIANGLE_FAN, 0, poly->numVerts);
+	
+	glPopMatrix();
+	
+	// restore default GL state
+	glEnable(GL_TEXTURE_2D);
+	glEnableClientState(GL_COLOR_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);	
+	
+	
+	
+	drawSpace(space, &_options);
 }
 	
 
@@ -110,6 +144,12 @@ drawSpaceOptions _options = {
 		cpv( 0, -25),
 	};
 	
+	cpVect boostTris[] = {
+		cpv(-6, -15),
+		cpv( 6, -15),
+		cpv( 0, -35),
+	};
+	
 	//Booster Flame
 	
 	cpBody *body = cpBodyNew(0.2f, cpMomentForPoly(1.0f, 3, tris, CGPointZero));
@@ -131,6 +171,12 @@ drawSpaceOptions _options = {
 	_flame->u = 50.0f;
 	_flame->sensor = cpTrue;
 	cpSpaceAddShape(space, _flame);
+	
+	_booster = cpPolyShapeNew(body, 3, boostTris, CGPointZero);
+	_booster->e = 0.0f; 
+	_booster->u = 50.0f;
+	_booster->sensor = cpTrue;
+	cpSpaceAddShape(space, _booster);
 }
 
 @end

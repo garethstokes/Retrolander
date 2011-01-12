@@ -8,6 +8,7 @@
 
 #import "LandingPad.h"
 #import "chipmunk.h"
+#import "drawSpace.h"
 
 @interface LandingPad(Private)
 
@@ -16,6 +17,13 @@
 
 @implementation LandingPad
 @synthesize shape=_shape;
+
+
+- (void) draw:(cpSpace *)space
+{
+	drawSegmentShape(_shape->body, (cpSegmentShape *)_shape, space);
+}
+
 
 - (id) initAgainst:(cpSpace*)worldSpace
 {

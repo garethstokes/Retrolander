@@ -17,5 +17,6 @@ cpShape *_shape;
 @property (nonatomic) cpShape* shape;
 
 - (id) initAgainst:(cpSpace *)worldSpace;
+- (void) draw:(cpSpace *)space;
 
 @end

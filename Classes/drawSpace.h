@@ -29,3 +29,4 @@ typedef struct drawSpaceOptions {
 } drawSpaceOptions;
 
 void drawSpace(cpSpace *space, drawSpaceOptions *options);
+void drawSegmentShape(cpBody *body, cpSegmentShape *seg, cpSpace *space);
