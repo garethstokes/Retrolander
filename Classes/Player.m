@@ -8,16 +8,27 @@
 
 #import "Player.h"
 #import "chipmunk.h"
+#import "drawSpace.h"
 
 @interface Player(Private)
 - (void) setupPysicsWith:(cpSpace*)space;
 @end
+
+drawSpaceOptions _options = {
+	0,//Draw Hash
+	0,//Draw BBoxes
+	1,//Draw Shapes
+	4.0f,//Collision Point Size
+	0.0f,//Body Point Size
+	1.5f//Line Thickness
+};
 
 @implementation Player
 @synthesize hasCrashed=_hasCrashed;
 @synthesize hasLanded=_hasLanded;
 @synthesize isThrusting=_isThrusting;
 @synthesize shape=_shape;
+@synthesize flame=_flame;
 
 - (id) initWith:(cpSpace*)worldSpace
 {
@@ -56,6 +67,20 @@
   }
 }
 
+
+
+- (void) draw:(cpSpace *)space
+{
+	drawSpace(space, &_options);
+	
+	//draw the ship
+	
+	//draw the flame
+	
+	
+}
+	
+
 - (void) land
 {
   cpShape *playerShape = _shape;
@@ -79,6 +104,14 @@
     cpv( 10,-15),
   };
 	
+	cpVect flameTris[] = {
+		cpv(-6, -15),
+		cpv( 6, -15),
+		cpv( 0, -25),
+	};
+	
+	//Booster Flame
+	
 	cpBody *body = cpBodyNew(0.2f, cpMomentForPoly(1.0f, 3, tris, CGPointZero));
 	
 	// TIP:
@@ -86,12 +119,18 @@
 	// cpVect == CGPoint
 	body->p = ccp(30, 300);
 	cpSpaceAddBody(space, body);
-  cpBodySetVelLimit(body, 100);
+	cpBodySetVelLimit(body, 100);
 	
 	_shape = cpPolyShapeNew(body, 3, tris, CGPointZero);
 	_shape->e = 0.0f; 
 	_shape->u = 50.0f;
 	cpSpaceAddShape(space, _shape);
+	
+	_flame = cpPolyShapeNew(body, 3, flameTris, CGPointZero);
+	_flame->e = 0.0f; 
+	_flame->u = 50.0f;
+	_flame->sensor = cpTrue;
+	cpSpaceAddShape(space, _flame);
 }
 
 @end

@@ -15,17 +15,20 @@
   BOOL _hasLanded;
   BOOL _isThrusting;  
   cpShape *_shape;
+	cpShape *_flame;
 }
 
 @property (nonatomic) BOOL hasCrashed;
 @property (nonatomic) BOOL hasLanded;
 @property (nonatomic) BOOL isThrusting;
 @property (nonatomic) cpShape *shape;
+@property (nonatomic) cpShape *flame;
 
 - (void) disableThrusting;
 - (void) setAngle:(cpFloat)value;
 - (void) step;
 - (void) land;
 - (id) initWith:(cpSpace *)worldSpace;
+- (void) draw:(cpSpace *)space;
 
 @end

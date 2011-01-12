@@ -9,16 +9,6 @@
 #import "GameLayer.h"
 #import "CCTouchDispatcher.h"
 #import "chipmunk.h"
-#import "drawSpace.h"
-
-drawSpaceOptions _options = {
-	0,//Draw Hash
-	0,//Draw BBoxes
-	1,//Draw Shapes
-	4.0f,//Collision Point Size
-	0.0f,//Body Point Size
-	1.5f//Line Thickness
-};
 
 @implementation GameLayer
 @synthesize player=_player;
@@ -49,9 +39,7 @@ drawSpaceOptions _options = {
 
 - (void) draw
 {
-	drawSpace(_worldSpace, &_options);
-	
-	//drawPolyShape(landingPad->body, (cpPolyShape *)_landingPad, space);
+	[_player draw:_worldSpace];
 	
 	for(int i = 0; i < _groundPoints.count - 1; i++)
   {
@@ -165,10 +153,7 @@ drawSpaceOptions _options = {
 	for(int i=0; i<steps; i++){
 		cpSpaceStep(_worldSpace, dt);
 	}
-  
-  //cpSpaceHashEach(space->activeShapes, &eachShape, nil);
-	//cpSpaceHashEach(space->staticShapes, &eachShape, nil);
-  
+    
   [_player step];
   
   cpArray *arbiters = _worldSpace->arbiters;

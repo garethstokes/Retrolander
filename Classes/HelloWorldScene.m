@@ -123,7 +123,7 @@ drawSpaceOptions options = {
 		_label.position = ccp( size.width/ 2, size.height - 20 );
 		[self addChild: _label];
 		
-    [self createPhysicsWorld];
+		[self createPhysicsWorld];
 		[self createLevel];		
 		[self addPlayer];		
     
@@ -159,7 +159,7 @@ drawSpaceOptions options = {
 
 -(void) addLandingPad
 {
-  cpVect first = ccp(290, 230);
+	cpVect first = ccp(290, 230);
 	cpVect second = ccp(330, 230);
   
 //  cpVect first = ccp(10, 230);
@@ -167,10 +167,10 @@ drawSpaceOptions options = {
   
 	cpBody *staticBody = cpBodyNew(INFINITY, INFINITY);
 
-  _landingPad = cpSegmentShapeNew(staticBody, first, second, 2.0f);
-  _landingPad->e = 1.0f;
-  _landingPad->u = 5000.0f;
-  _landingPad->collision_type = 2;
+	_landingPad = cpSegmentShapeNew(staticBody, first, second, 2.0f);
+	_landingPad->e = 1.0f;
+	_landingPad->u = 5000.0f;
+	_landingPad->collision_type = 2;
 	
 	cpSpaceAddStaticShape(space, _landingPad);
 }
@@ -272,7 +272,7 @@ drawSpaceOptions options = {
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	_isThrusting = NO;
-  cpBody *body = _player->body;
+	cpBody *body = _player->body;
 	cpBodyResetForces(body);
 }
 
@@ -284,10 +284,10 @@ drawSpaceOptions options = {
 
 - (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
 {	
-  if (_hasLanded) return;
- static float prevX=0, prevY=0;
+	if (_hasLanded) return;
+	static float prevX=0, prevY=0;
 	
-#define kFilterFactor 0.05f
+	#define kFilterFactor 0.05f
 	
 	float accelX = (float) acceleration.x * kFilterFactor + (1- kFilterFactor)*prevX;
 	float accelY = (float) acceleration.y * kFilterFactor + (1- kFilterFactor)*prevY;
