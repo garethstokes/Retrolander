@@ -81,46 +81,69 @@ drawSpaceOptions _options = {
   
   // bottom
   shape = cpSegmentShapeNew(staticBody, ccp(0,0), ccp(wins.width,0), 0.0f);
-  shape->e = 1.0f; shape->u = 1.0f;
+  shape->e = 1.0f; 
+  shape->u = 1.0f;
+  shape->group = 1;
   cpSpaceAddStaticShape(space, shape);
   
   // top
   shape = cpSegmentShapeNew(staticBody, ccp(0,wins.height), ccp(wins.width,wins.height), 0.0f);
-  shape->e = 1.0f; shape->u = 1.0f;
+  shape->e = 1.0f; 
+  shape->u = 1.0f;
+  shape->group = 1;
   cpSpaceAddStaticShape(space, shape);
   
   // left
   shape = cpSegmentShapeNew(staticBody, ccp(0,0), ccp(0,wins.height), 0.0f);
-  shape->e = 1.0f; shape->u = 1.0f;
+  shape->e = 1.0f; 
+  shape->u = 1.0f;
+  shape->group = 1;
   cpSpaceAddStaticShape(space, shape);
   
   // right
   shape = cpSegmentShapeNew(staticBody, ccp(wins.width,0), ccp(wins.width,wins.height), 0.0f);
-  shape->e = 1.0f; shape->u = 1.0f;
+  shape->e = 1.0f; 
+  shape->u = 1.0f;
+  shape->group = 1;
   cpSpaceAddStaticShape(space, shape);
   _worldSpace = space;
 }
 
 - (void) mapTerrain
 {
+  //_groundPoints = [[NSArray arrayWithObjects:
+//                   [NSValue valueWithCGPoint:CGPointMake(0, 10)],
+//                   [NSValue valueWithCGPoint:CGPointMake(30, 100)],
+//                   [NSValue valueWithCGPoint:CGPointMake(100, 100)],
+//                   [NSValue valueWithCGPoint:CGPointMake(120, 200)],
+//                   [NSValue valueWithCGPoint:CGPointMake(160, 200)],
+//                   [NSValue valueWithCGPoint:CGPointMake(180, 180)],
+//                   [NSValue valueWithCGPoint:CGPointMake(200, 180)],
+//                   [NSValue valueWithCGPoint:CGPointMake(240, 190)],
+//                   [NSValue valueWithCGPoint:CGPointMake(260, 190)],
+//                   [NSValue valueWithCGPoint:CGPointMake(320, 60)],
+//                   [NSValue valueWithCGPoint:CGPointMake(360, 60)],
+//                   [NSValue valueWithCGPoint:CGPointMake(360, 190)],
+//                   [NSValue valueWithCGPoint:CGPointMake(370, 190)],
+//                   [NSValue valueWithCGPoint:CGPointMake(480, 300)],
+//                   [NSValue valueWithCGPoint:CGPointMake(480, 0)],
+//                   [NSValue valueWithCGPoint:CGPointMake(0, 0)],
+//                   nil] retain];
+  
   _groundPoints = [[NSArray arrayWithObjects:
-                   [NSValue valueWithCGPoint:CGPointMake(0, 10)],
-                   [NSValue valueWithCGPoint:CGPointMake(30, 100)],
-                   [NSValue valueWithCGPoint:CGPointMake(100, 100)],
-                   [NSValue valueWithCGPoint:CGPointMake(120, 200)],
-                   [NSValue valueWithCGPoint:CGPointMake(160, 200)],
-                   [NSValue valueWithCGPoint:CGPointMake(180, 180)],
-                   [NSValue valueWithCGPoint:CGPointMake(200, 180)],
-                   [NSValue valueWithCGPoint:CGPointMake(240, 190)],
-                   [NSValue valueWithCGPoint:CGPointMake(260, 190)],
-                   [NSValue valueWithCGPoint:CGPointMake(320, 60)],
-                   [NSValue valueWithCGPoint:CGPointMake(360, 60)],
-                   [NSValue valueWithCGPoint:CGPointMake(360, 190)],
-                   [NSValue valueWithCGPoint:CGPointMake(370, 190)],
-                   [NSValue valueWithCGPoint:CGPointMake(480, 300)],
-                   nil] retain];
+                    [NSValue valueWithCGPoint:CGPointMake(0, 0)],
+                    [NSValue valueWithCGPoint:CGPointMake(0, 90)],
+                    [NSValue valueWithCGPoint:CGPointMake(30, 100)],
+                    [NSValue valueWithCGPoint:CGPointMake(100, 100)],
+                    [NSValue valueWithCGPoint:CGPointMake(180, 100)],
+                    [NSValue valueWithCGPoint:CGPointMake(290, 60)],
+                    [NSValue valueWithCGPoint:CGPointMake(320, 00)],
+                    nil] retain];
 	
-	
+  CGPoint points[[_groundPoints count]];
+  for (int i = 0; i < [_groundPoints count]; i++) {
+    points[i] = [[_groundPoints objectAtIndex:i] CGPointValue];
+  }
   
   cpShape *shape;
   cpBody *staticBody = cpBodyNew(INFINITY, INFINITY);
@@ -136,7 +159,18 @@ drawSpaceOptions _options = {
 		shape->e = 0.0f; 
 		shape->u = 1.0f;  
 		shape->collision_type = 2;
+    shape->group = 1;
   }
+  
+  shape = cpSpaceAddShape(_worldSpace, 
+                          cpPolyShapeNew(staticBody, 
+                                         [_groundPoints count], 
+                                         points, 
+                                         CGPointZero));
+  shape->e = 0.0f; 
+  shape->u = 0.0f;  
+  shape->group = 1;
+  //shape->collision_type = 7;
 }
 
 - (void) addPlayerAndLandingPad
