@@ -18,6 +18,7 @@
 	cpShape *_flame;
   
   int _fuel;
+  int _velocityLimit;
 }
 
 @property (nonatomic) BOOL hasCrashed;
@@ -27,10 +28,11 @@
 @property (nonatomic) cpShape *flame;
 @property (nonatomic) cpShape *booster;
 @property (nonatomic) int fuel;
+@property (nonatomic) int velocityLimit;
 
 - (void) disableThrusting;
 - (void) setAngle:(cpFloat)value;
-- (void) step;
+- (void) step:(ccTime) delta;
 - (void) land;
 - (id) initWith:(cpSpace *)worldSpace;
 - (void) draw:(cpSpace *)space;

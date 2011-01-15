@@ -31,6 +31,7 @@ drawSpaceOptions _options = {
 @synthesize flame=_flame;
 @synthesize booster=_booster;
 @synthesize fuel=_fuel;
+@synthesize velocityLimit=_velocityLimit;
 
 - (id) initWith:(cpSpace*)worldSpace
 {
@@ -40,9 +41,10 @@ drawSpaceOptions _options = {
   _hasLanded = NO;
   _isThrusting = NO;
   
-  [self setupPysicsWith:worldSpace];
-  _fuel = 100;
+  _fuel = 150;
+  _velocityLimit = 100;
   
+  [self setupPysicsWith:worldSpace];
   return self;
 }
 
@@ -59,14 +61,21 @@ drawSpaceOptions _options = {
   cpBodySetAngle(body, value);
 }
 
-- (void) step
+- (void) step:(ccTime) delta
 {
-  if (_isThrusting) {
+  if (_isThrusting && _fuel > 0) {
     cpBody *body = _shape->body;
     
     cpVect force = cpvforangle(body->a);
     force = cpvmult(cpvperp(force), 1);    
     cpBodyApplyImpulse(body, force, cpvzero);
+    
+    if (abs(body->v.x) <= _velocityLimit 
+        && abs(body->v.y) <= _velocityLimit) 
+    {
+      //body;
+      _fuel -= delta;
+    }
   }
 }
 
@@ -89,11 +98,8 @@ drawSpaceOptions _options = {
 
 	//draw the flame
 	glPushMatrix();
-	
-	
-	
-	
-	if (_isThrusting)	{
+  
+	if (_isThrusting && _fuel > 0)	{
 		glColor4f(0.93359375f, 1.0f, 0.234375f, 1.0f);
 		poly = (cpPolyShape *)_booster;
 	}else {
@@ -110,8 +116,6 @@ drawSpaceOptions _options = {
 	glEnable(GL_TEXTURE_2D);
 	glEnableClientState(GL_COLOR_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);	
-	
-	
 	
 	drawSpace(space, &_options);
 }
@@ -161,7 +165,7 @@ drawSpaceOptions _options = {
 	// cpVect == CGPoint
 	body->p = ccp(30, 300);
 	cpSpaceAddBody(space, body);
-	cpBodySetVelLimit(body, 100);
+	cpBodySetVelLimit(body, _velocityLimit);
 	
 	_shape = cpPolyShapeNew(body, 3, tris, CGPointZero);
 	_shape->e = 0.0f; 

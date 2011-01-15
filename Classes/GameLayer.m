@@ -31,6 +31,7 @@
     [self mapTerrain];		
     [self addPlayerAndLandingPad];		
     
+    
     [self schedule: @selector(step:)];
     [[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 30)]; 
   }
@@ -191,7 +192,7 @@
 		cpSpaceStep(_worldSpace, dt);
 	}
     
-  [_player step];
+  [_player step:delta];
   
   cpArray *arbiters = _worldSpace->arbiters;
 	
