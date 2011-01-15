@@ -16,6 +16,8 @@
   BOOL _isThrusting;  
   cpShape *_shape;
 	cpShape *_flame;
+  
+  int _fuel;
 }
 
 @property (nonatomic) BOOL hasCrashed;
@@ -24,6 +26,7 @@
 @property (nonatomic) cpShape *shape;
 @property (nonatomic) cpShape *flame;
 @property (nonatomic) cpShape *booster;
+@property (nonatomic) int fuel;
 
 - (void) disableThrusting;
 - (void) setAngle:(cpFloat)value;

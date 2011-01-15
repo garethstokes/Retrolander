@@ -30,6 +30,7 @@ drawSpaceOptions _options = {
 @synthesize shape=_shape;
 @synthesize flame=_flame;
 @synthesize booster=_booster;
+@synthesize fuel=_fuel;
 
 - (id) initWith:(cpSpace*)worldSpace
 {
@@ -40,6 +41,7 @@ drawSpaceOptions _options = {
   _isThrusting = NO;
   
   [self setupPysicsWith:worldSpace];
+  _fuel = 100;
   
   return self;
 }

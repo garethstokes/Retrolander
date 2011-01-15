@@ -49,9 +49,10 @@
 	
 	[_landingPad draw:_worldSpace];
 	
-  [_label setString:[NSString stringWithFormat:@"Crashed Status: %s, Landed Status: %s", 
+  [_label setString:[NSString stringWithFormat:@"Crashed Status: %s, Landed Status: %s, Fuel: %i", 
                                                [_player hasCrashed] ? "YES" : "NO", 
-                                               [_player hasLanded] ? "YES" : "NO"]];
+                                               [_player hasLanded] ? "YES" : "NO", 
+                                               [_player fuel]]];
 }
 
 - (void) createPhysics
