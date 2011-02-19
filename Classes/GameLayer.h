@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "Player.h"
 #import "LandingPad.h"
+#import "Common.h"
 
 @interface GameLayer : CCLayer {
   Player *_player;

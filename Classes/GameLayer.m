@@ -59,7 +59,7 @@
 
 - (void) createPhysics
 {
-  CGSize wins = [[CCDirector sharedDirector] winSize];
+  //CGSize wins = [[CCDirector sharedDirector] winSize];
   cpInitChipmunk();
   
   cpBody *staticBody = cpBodyNew(INFINITY, INFINITY);
@@ -74,8 +74,10 @@
   
   // bottom
   shape = cpSegmentShapeNew(staticBody, 
-                            ccp(0 - (wins.height * 4), 0 - (wins.height * 4)), 
-                            ccp(wins.width * 4, 0 - (wins.height * 4)), 
+                            //ccp(0 - (wins.height * 4), 0 - (wins.height * 4)), 
+                            ccp(0 - MapWidth, 0- MapHeight),
+                            //ccp(wins.width * 4, 0 - (wins.height * 4)), 
+                            ccp(MapWidth, 0 - MapHeight),
                             0.0f);
   shape->e = 1.0f; 
   shape->u = 1.0f;
@@ -84,8 +86,10 @@
   
   // top
   shape = cpSegmentShapeNew(staticBody, 
-                            ccp(0 - (wins.height * 4), wins.height * 4), 
-                            ccp(wins.width * 4, wins.height * 4), 
+                            //ccp(0 - (wins.height * 4), wins.height * 4), 
+                            ccp(0 - MapWidth, MapHeight),
+                            //ccp(wins.width * 4, wins.height * 4), 
+                            ccp(MapWidth, MapHeight),
                             0.0f);
   shape->e = 1.0f; 
   shape->u = 1.0f;
@@ -94,8 +98,10 @@
   
   // left
   shape = cpSegmentShapeNew(staticBody, 
-                            ccp(0 - (wins.height * 4), 0 - (wins.height * 4)), 
-                            ccp(0 - (wins.height * 4), wins.height * 4), 
+                            //ccp(0 - (wins.height * 4), 0 - (wins.height * 4)), 
+                            ccp(0 - MapWidth, 0 - MapHeight),
+                            //ccp(0 - (wins.height * 4), wins.height * 4), 
+                            ccp(0 - MapWidth, MapHeight),
                             0.0f);
   shape->e = 1.0f; 
   shape->u = 1.0f;
@@ -104,8 +110,10 @@
   
   // right
   shape = cpSegmentShapeNew(staticBody, 
-                            ccp(wins.width * 4, 0 - (wins.height * 4)), 
-                            ccp(wins.width * 4, wins.height * 4), 
+                            //ccp(wins.width * 4, 0 - (wins.height * 4)), 
+                            ccp(MapWidth, 0 - MapHeight),
+                            //ccp(wins.width * 4, wins.height * 4), 
+                            ccp(MapWidth, MapHeight),
                             0.0f);
   shape->e = 1.0f; 
   shape->u = 1.0f;
@@ -136,13 +144,16 @@
 //                   nil] retain];
   
   _groundPoints = [[NSArray arrayWithObjects:
-                    [NSValue valueWithCGPoint:CGPointMake(0, 0)],
-                    [NSValue valueWithCGPoint:CGPointMake(0, 90)],
-                    [NSValue valueWithCGPoint:CGPointMake(30, 100)],
-                    [NSValue valueWithCGPoint:CGPointMake(100, 100)],
-                    [NSValue valueWithCGPoint:CGPointMake(180, 100)],
-                    [NSValue valueWithCGPoint:CGPointMake(290, 60)],
-                    [NSValue valueWithCGPoint:CGPointMake(320, 00)],
+                    [NSValue valueWithCGPoint:CGPointMake(0 - MapWidth, 0 - MapHeight)],
+                    [NSValue valueWithCGPoint:CGPointMake(0 - MapWidth, 180)],
+                    [NSValue valueWithCGPoint:CGPointMake(MapWidth, 180)],
+                    [NSValue valueWithCGPoint:CGPointMake(MapWidth, 0 - MapHeight)],
+                    [NSValue valueWithCGPoint:CGPointMake(0 - MapWidth, 0 - MapHeight)],
+                    //[NSValue valueWithCGPoint:CGPointMake(30, 100)],
+                    //[NSValue valueWithCGPoint:CGPointMake(100, 100)],
+                    //[NSValue valueWithCGPoint:CGPointMake(180, 100)],
+                    //[NSValue valueWithCGPoint:CGPointMake(290, 60)],
+                    //[NSValue valueWithCGPoint:CGPointMake(320, 00)],
                     nil] retain];
 	
   CGPoint points[[_groundPoints count]];

@@ -621,6 +621,7 @@
 		E700E4AC12D9EABB00B3A621 /* SpaceBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceBackground.m; sourceTree = "<group>"; };
 		E700E4AE12D9EB9300B3A621 /* Space.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Space.plist; sourceTree = "<group>"; };
 		E700E52A12D9F20B00B3A621 /* Galaxy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Galaxy.plist; sourceTree = "<group>"; };
+		E714C4B2130FA70A00FF7EF3 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		E7CCF0F212C0A42D001CE7C4 /* drawSpace.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.h; sourceTree = "<group>"; };
 		E7CCF0F312C0A42D001CE7C4 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.c; sourceTree = "<group>"; };
 		E7CCF37C12C5EEA1001CE7C4 /* GameHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHud.h; sourceTree = "<group>"; };
@@ -742,6 +743,7 @@
 				E7CCF7C712C75FC8001CE7C4 /* LandingPad.m */,
 				E700E4AB12D9EABB00B3A621 /* SpaceBackground.h */,
 				E700E4AC12D9EABB00B3A621 /* SpaceBackground.m */,
+				E714C4B2130FA70A00FF7EF3 /* Common.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1371,6 +1373,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "spacehip studio";
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "lander" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
