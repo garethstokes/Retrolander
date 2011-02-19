@@ -49,10 +49,11 @@
 	[_player draw:_worldSpace];
 	
 	[_landingPad draw:_worldSpace];
-	
-  [_label setString:[NSString stringWithFormat:@"Crashed Status: %s, Landed Status: %s, Fuel: %i", 
-                                               [_player hasCrashed] ? "YES" : "NO", 
-                                               [_player hasLanded] ? "YES" : "NO", 
+  
+  float distance = ccpDistance([_landingPad position], [_player position]);
+  [_label setString:[NSString stringWithFormat:@"Status: %s, Distance: %f, Fuel: %i", 
+                                               [_player hasCrashed] ? "CRASHED" : "OK", 
+                                               distance, 
                                                [_player fuel]]];
 }
 
@@ -72,28 +73,40 @@
   cpShape *shape;
   
   // bottom
-  shape = cpSegmentShapeNew(staticBody, ccp(0,0), ccp(wins.width,0), 0.0f);
+  shape = cpSegmentShapeNew(staticBody, 
+                            ccp(0 - (wins.height * 4), 0 - (wins.height * 4)), 
+                            ccp(wins.width * 4, 0 - (wins.height * 4)), 
+                            0.0f);
   shape->e = 1.0f; 
   shape->u = 1.0f;
   shape->group = 1;
   cpSpaceAddStaticShape(space, shape);
   
   // top
-  shape = cpSegmentShapeNew(staticBody, ccp(0,wins.height), ccp(wins.width,wins.height), 0.0f);
+  shape = cpSegmentShapeNew(staticBody, 
+                            ccp(0 - (wins.height * 4), wins.height * 4), 
+                            ccp(wins.width * 4, wins.height * 4), 
+                            0.0f);
   shape->e = 1.0f; 
   shape->u = 1.0f;
   shape->group = 1;
   cpSpaceAddStaticShape(space, shape);
   
   // left
-  shape = cpSegmentShapeNew(staticBody, ccp(0,0), ccp(0,wins.height), 0.0f);
+  shape = cpSegmentShapeNew(staticBody, 
+                            ccp(0 - (wins.height * 4), 0 - (wins.height * 4)), 
+                            ccp(0 - (wins.height * 4), wins.height * 4), 
+                            0.0f);
   shape->e = 1.0f; 
   shape->u = 1.0f;
   shape->group = 1;
   cpSpaceAddStaticShape(space, shape);
   
   // right
-  shape = cpSegmentShapeNew(staticBody, ccp(wins.width,0), ccp(wins.width,wins.height), 0.0f);
+  shape = cpSegmentShapeNew(staticBody, 
+                            ccp(wins.width * 4, 0 - (wins.height * 4)), 
+                            ccp(wins.width * 4, wins.height * 4), 
+                            0.0f);
   shape->e = 1.0f; 
   shape->u = 1.0f;
   shape->group = 1;
@@ -188,6 +201,10 @@
 	int steps = 2;
 	CGFloat dt = delta/(CGFloat)steps;
 	
+  float distance = ccpDistance([_player position], [_landingPad position]);
+  [self.camera setCenterX:[_player position].x - 50 centerY:[_player position].y -200 centerZ:0];
+  [self.camera setEyeX:[_player position].x - 50 eyeY:[_player position].y -200 eyeZ:distance / 3];
+  
 	for(int i=0; i<steps; i++){
 		cpSpaceStep(_worldSpace, dt);
 	}

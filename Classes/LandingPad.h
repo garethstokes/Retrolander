@@ -18,5 +18,6 @@ cpShape *_shape;
 
 - (id) initAgainst:(cpSpace *)worldSpace;
 - (void) draw:(cpSpace *)space;
+- (cpVect) position;
 
 @end

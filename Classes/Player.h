@@ -36,5 +36,6 @@
 - (void) land;
 - (id) initWith:(cpSpace *)worldSpace;
 - (void) draw:(cpSpace *)space;
+- (cpVect) position;
 
 @end

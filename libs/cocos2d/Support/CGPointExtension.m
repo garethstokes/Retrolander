@@ -35,7 +35,7 @@ CGFloat
 ccpLength(const CGPoint v)
 {
 	return sqrtf(ccpLengthSQ(v));
-}
+} 
 
 CGFloat
 ccpDistance(const CGPoint v1, const CGPoint v2)

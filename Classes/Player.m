@@ -185,4 +185,10 @@ drawSpaceOptions _options = {
 	cpSpaceAddShape(space, _booster);
 }
 
+- (cpVect) position
+{
+  cpBody *body = _shape->body;
+  return body->p;
+}
+
 @end

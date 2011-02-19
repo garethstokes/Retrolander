@@ -24,16 +24,21 @@
 	drawSegmentShape(_shape->body, (cpSegmentShape *)_shape, space);
 }
 
+- (cpVect) position
+{
+  //return ccp(310, 230);
+  return ccp(30, 230);
+}
 
 - (id) initAgainst:(cpSpace*)worldSpace
 {
   if(!(self=[super init])) return nil;
   
-  cpVect first = ccp(290, 230);
-	cpVect second = ccp(330, 230);
+  //cpVect first = ccp(290, 230);
+	//cpVect second = ccp(330, 230);
   
-  //  cpVect first = ccp(10, 230);
-  //	cpVect second = ccp(50, 230);
+    cpVect first = ccp(10, 230);
+  	cpVect second = ccp(50, 230);
   
 	cpBody *staticBody = cpBodyNew(INFINITY, INFINITY);
   
