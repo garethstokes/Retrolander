@@ -213,12 +213,12 @@
   
   cpVect middle = ccpGetOffset(angle, distance / 2);
   
-  NSLog([NSString stringWithFormat:@"Status: %s, distance: %f, angle: %f, offset: (%f,%f)", 
-                     [_player hasCrashed] ? "CRASHED" : "OK", 
-                     distance,
-                     angle,
-                     middle.x,
-                     middle.y]);
+  //NSLog([NSString stringWithFormat:@"Status: %s, distance: %f, angle: %f, offset: (%f,%f)", 
+//                     [_player hasCrashed] ? "CRASHED" : "OK", 
+//                     distance,
+//                     angle,
+//                     middle.x,
+//                     middle.y]);
   
   middle = ccpAdd([_landingPad position], middle);
   //middle = [_player position];
