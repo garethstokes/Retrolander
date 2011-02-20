@@ -7,6 +7,8 @@
  *
  */
 
+#import "cocos2d.h"
+
 enum {
   MapWidth = 480 * 4, 
   MapHeight = 320 * 4
@@ -24,4 +26,15 @@ ccpGetOffset(const double angle, const int distance)
   x = distance * cos(angle);
   y = distance * sin(angle);
   return ccp(x,y);
+}
+
+// reduces the first point to (0,0) then
+// subtracts a from b. once that is done
+// it will return the angle from (0,0).
+static inline CGPoint 
+ccpAngleBetween(CGPoint a, CGPoint b)
+{
+  CGPoint offset = ccp(b.x - a.x, b.y - a.y);
+  //NSLog(@"offset: (%d,%d)", offset.x, offset.y);
+  return offset;
 }

@@ -207,9 +207,11 @@
 	CGFloat dt = delta/(CGFloat)steps;
   
   float distance = ccpDistance([_player position], [_landingPad position]) - 16;
-  float angle = CC_RADIANS_TO_DEGREES( ccpAngle([_landingPad position], [_player position]) );
+  cpVect offset = ccpAngleBetween([_landingPad position], [_player position]);
+  //float angle = CC_RADIANS_TO_DEGREES( cpvtoangle(offset) );
+  float angle = cpvtoangle(offset);
   
-  cpVect middle = ccpGetOffset(angle, distance);
+  cpVect middle = ccpGetOffset(angle, distance / 2);
   
   NSLog([NSString stringWithFormat:@"Status: %s, distance: %f, angle: %f, offset: (%f,%f)", 
                      [_player hasCrashed] ? "CRASHED" : "OK", 
@@ -218,8 +220,8 @@
                      middle.x,
                      middle.y]);
   
-  middle = ccpAdd([_player position], middle);
-  middle = [_player position];
+  middle = ccpAdd([_landingPad position], middle);
+  //middle = [_player position];
   [self.camera setCenterX:middle.x - 240 centerY:middle.y - 160 centerZ:0];
   [self.camera setEyeX:middle.x - 240 eyeY:middle.y - 160 eyeZ:distance / 3];
   

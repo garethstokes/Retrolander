@@ -49,7 +49,7 @@ cpvslerpconst(const cpVect v1, const cpVect v2, const cpFloat a)
 	cpFloat angle = cpfacos(cpvdot(v1, v2));
 	return cpvslerp(v1, v2, cpfmin(a, angle)/angle);
 }
-
+	
 cpVect
 cpvforangle(const cpFloat a)
 {
