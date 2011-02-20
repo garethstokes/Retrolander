@@ -49,12 +49,6 @@
 	[_player draw:_worldSpace];
 	
 	[_landingPad draw:_worldSpace];
-  
-  float distance = ccpDistance([_landingPad position], [_player position]);
-  [_label setString:[NSString stringWithFormat:@"Status: %s, Distance: %f, Fuel: %i", 
-                                               [_player hasCrashed] ? "CRASHED" : "OK", 
-                                               distance, 
-                                               [_player fuel]]];
 }
 
 - (void) createPhysics
@@ -211,10 +205,23 @@
   if ([_player hasCrashed]) return;
 	int steps = 2;
 	CGFloat dt = delta/(CGFloat)steps;
-	
-  float distance = ccpDistance([_player position], [_landingPad position]);
-  [self.camera setCenterX:[_player position].x - 50 centerY:[_player position].y -200 centerZ:0];
-  [self.camera setEyeX:[_player position].x - 50 eyeY:[_player position].y -200 eyeZ:distance / 3];
+  
+  float distance = ccpDistance([_player position], [_landingPad position]) - 16;
+  float angle = CC_RADIANS_TO_DEGREES( ccpAngle([_landingPad position], [_player position]) );
+  
+  cpVect middle = ccpGetOffset(angle, distance);
+  
+  NSLog([NSString stringWithFormat:@"Status: %s, distance: %f, angle: %f, offset: (%f,%f)", 
+                     [_player hasCrashed] ? "CRASHED" : "OK", 
+                     distance,
+                     angle,
+                     middle.x,
+                     middle.y]);
+  
+  middle = ccpAdd([_player position], middle);
+  middle = [_player position];
+  [self.camera setCenterX:middle.x - 240 centerY:middle.y - 160 centerZ:0];
+  [self.camera setEyeX:middle.x - 240 eyeY:middle.y - 160 eyeZ:distance / 3];
   
 	for(int i=0; i<steps; i++){
 		cpSpaceStep(_worldSpace, dt);
