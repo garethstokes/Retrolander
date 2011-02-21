@@ -2,6 +2,7 @@
 #import "CCTouchDispatcher.h"
 #import "HelloWorldScene.h"
 #import "GameScene.h"
+#import "GameLayer.h"
 
 @implementation GameHud
 
@@ -33,7 +34,7 @@
 {
   if ((self=[super init])) {
     // create and initialize a Label
-    _text = [CCLabelTTF labelWithString:@"restart" fontName:@"Marker Felt" fontSize:16];
+    _text = [CCLabelTTF labelWithString:@"restart" fontName:@"Helvetica" fontSize:16];
 		[self addChild: _text];
     
     self.isTouchEnabled = YES;
@@ -70,7 +71,6 @@
 {
   NSLog(@"ccTouchBegan Called");
   if ( ![self containsTouchLocation:touch] ) return NO;
-  [_text setString:@"is being touched"];
   return YES;
 }
 
@@ -88,4 +88,21 @@
   [[CCDirector sharedDirector] replaceScene:[Game scene]];
 }
 
+@end
+
+@implementation FuelGauge 
+  
+- (id) initWithMax:(int)fuel
+{
+  if ((self=[super init])) {
+    _maxFuel = fuel;
+  }  
+  return self;
+}
+
+- (void) draw:(int)playerFuel
+{
+  NSLog([NSString stringWithFormat:@"fuel: %s", playerFuel]);
+}
+  
 @end

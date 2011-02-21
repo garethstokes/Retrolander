@@ -24,3 +24,15 @@
 
 - (CGRect) rect;
 @end
+
+// FUEL GAUGE
+@interface FuelGauge : NSObject
+{
+  int _maxFuel;
+}
+
+- (id) initWithMax:(int)fuel;
+- (void) draw:(int) playerFuel;
+
+@end
+

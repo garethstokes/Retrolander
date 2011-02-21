@@ -9,6 +9,7 @@
 #import "Player.h"
 #import "chipmunk.h"
 #import "drawSpace.h"
+#import "Common.h"
 
 @interface Player(Private)
 - (void) setupPysicsWith:(cpSpace*)space;
@@ -41,7 +42,7 @@ drawSpaceOptions _options = {
   _hasLanded = NO;
   _isThrusting = NO;
   
-  _fuel = 150;
+  _fuel = MAX_FUEL;
   _velocityLimit = 100;
   
   [self setupPysicsWith:worldSpace];

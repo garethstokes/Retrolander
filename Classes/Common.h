@@ -7,7 +7,9 @@
  *
  */
 
-#import "cocos2d.h"
+//#import "cocos2d.h"
+
+static const int MAX_FUEL = 250;
 
 enum {
   MapWidth = 480 * 4, 
@@ -25,7 +27,7 @@ ccpGetOffset(const double angle, const int distance)
   double x,y;
   x = distance * cos(angle);
   y = distance * sin(angle);
-  return ccp(x,y);
+  return CGPointMake(x,y);
 }
 
 // reduces the first point to (0,0) then
@@ -34,7 +36,7 @@ ccpGetOffset(const double angle, const int distance)
 static inline CGPoint 
 ccpAngleBetween(CGPoint a, CGPoint b)
 {
-  CGPoint offset = ccp(b.x - a.x, b.y - a.y);
+  CGPoint offset = CGPointMake(b.x - a.x, b.y - a.y);
   //NSLog(@"offset: (%d,%d)", offset.x, offset.y);
   return offset;
 }

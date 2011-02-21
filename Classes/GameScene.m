@@ -13,12 +13,16 @@
 
 @implementation Game
 
+@synthesize game=_game;
+
 + (id) scene
 {
-  CCScene *scene = [CCScene node];
+  Game *scene = [Game node];
   
   GameHud *hud = [[GameHud alloc] init];
+  
   GameLayer *game = [[GameLayer alloc] init];
+  [scene setGame: game];
   SpaceBackground *background = [[SpaceBackground alloc] init];
 
   [scene addChild:hud z:100];
