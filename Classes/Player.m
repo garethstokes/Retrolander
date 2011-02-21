@@ -71,12 +71,12 @@ drawSpaceOptions _options = {
     force = cpvmult(cpvperp(force), 1);    
     cpBodyApplyImpulse(body, force, cpvzero);
     
-    if (abs(body->v.x) <= _velocityLimit 
-        && abs(body->v.y) <= _velocityLimit) 
-    {
+    //if (abs(body->v.x) <= _velocityLimit 
+//        && abs(body->v.y) <= _velocityLimit) 
+//    {
       //body;
       _fuel -= delta;
-    }
+    //}
   }
 }
 
