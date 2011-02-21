@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface GameHud : CCLayerColor
-
-@end
-
-
 // RESTART BUTTON
 @interface RestartButton : CCLayer<CCTargetedTouchDelegate>
 {
@@ -26,7 +21,7 @@
 @end
 
 // FUEL GAUGE
-@interface FuelGauge : NSObject
+@interface FuelGauge : CCNode
 {
   int _maxFuel;
 }
@@ -36,3 +31,9 @@
 
 @end
 
+@interface GameHud : CCLayerColor
+{
+  FuelGauge *_fuel;
+}
+
+@end

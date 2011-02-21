@@ -9,7 +9,7 @@
 
 //#import "cocos2d.h"
 
-static const int MAX_FUEL = 250;
+static const int MAX_FUEL = 200;
 
 enum {
   MapWidth = 480 * 4, 
@@ -37,6 +37,5 @@ static inline CGPoint
 ccpAngleBetween(CGPoint a, CGPoint b)
 {
   CGPoint offset = CGPointMake(b.x - a.x, b.y - a.y);
-  //NSLog(@"offset: (%d,%d)", offset.x, offset.y);
   return offset;
 }

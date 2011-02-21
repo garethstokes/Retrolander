@@ -21,7 +21,21 @@
   [restart setPosition:ccp(size.width - 30, 15)];
   [self addChild:restart];
   
+  _fuel = [[FuelGauge alloc] initWithMax:MAX_FUEL];
+  [self addChild:_fuel];
+  
   return self;
+}
+
+- (void) draw
+{
+  [super draw];
+  
+  if (_fuel != nil) {
+    Game * scene = (Game *)[[CCDirector sharedDirector] runningScene];
+    int current_fuel = [[[scene game] player] fuel];
+    [_fuel draw:current_fuel];
+  }
 }
 
 @end
@@ -102,7 +116,26 @@
 
 - (void) draw:(int)playerFuel
 {
-  NSLog([NSString stringWithFormat:@"fuel: %s", playerFuel]);
+  double offset = (playerFuel / (double)MAX_FUEL) * 100;
+  offset = offset * 2;
+  NSLog([NSString stringWithFormat:@"fuel: %i", playerFuel]);
+  
+  const GLfloat line[] = {
+    10.0f, 15.0f, //point B
+    10.0f + offset, 15.0f, //point A
+  };
+  
+  glPushMatrix();
+  
+  glVertexPointer(2, GL_FLOAT, 0, line);
+  glEnableClientState(GL_VERTEX_ARRAY);
+  
+  glLineWidth(5.0f);
+  glDrawArrays(GL_LINES, 0, 2);
+  
+  glPopMatrix();
+  
+  glLineWidth(1.0f);
 }
   
 @end
