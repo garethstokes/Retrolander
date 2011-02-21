@@ -40,12 +40,6 @@
 
 - (void) draw
 {
-	for(int i = 0; i < _groundPoints.count - 1; i++)
-  {
-		ccDrawLine([[_groundPoints objectAtIndex:i] CGPointValue], 
-               [[_groundPoints objectAtIndex:i + 1] CGPointValue]); 
-	}
-	
 	[_player draw:_worldSpace];
 	
 	[_landingPad draw:_worldSpace];
@@ -118,69 +112,35 @@
 
 - (void) mapTerrain
 {
-  //_groundPoints = [[NSArray arrayWithObjects:
-//                   [NSValue valueWithCGPoint:CGPointMake(0, 10)],
-//                   [NSValue valueWithCGPoint:CGPointMake(30, 100)],
-//                   [NSValue valueWithCGPoint:CGPointMake(100, 100)],
-//                   [NSValue valueWithCGPoint:CGPointMake(120, 200)],
-//                   [NSValue valueWithCGPoint:CGPointMake(160, 200)],
-//                   [NSValue valueWithCGPoint:CGPointMake(180, 180)],
-//                   [NSValue valueWithCGPoint:CGPointMake(200, 180)],
-//                   [NSValue valueWithCGPoint:CGPointMake(240, 190)],
-//                   [NSValue valueWithCGPoint:CGPointMake(260, 190)],
-//                   [NSValue valueWithCGPoint:CGPointMake(320, 60)],
-//                   [NSValue valueWithCGPoint:CGPointMake(360, 60)],
-//                   [NSValue valueWithCGPoint:CGPointMake(360, 190)],
-//                   [NSValue valueWithCGPoint:CGPointMake(370, 190)],
-//                   [NSValue valueWithCGPoint:CGPointMake(480, 300)],
-//                   [NSValue valueWithCGPoint:CGPointMake(480, 0)],
-//                   [NSValue valueWithCGPoint:CGPointMake(0, 0)],
-//                   nil] retain];
-  
-  _groundPoints = [[NSArray arrayWithObjects:
-                    [NSValue valueWithCGPoint:CGPointMake(0 - MapWidth, 0 - MapHeight)],
-                    [NSValue valueWithCGPoint:CGPointMake(0 - MapWidth, 180)],
-                    [NSValue valueWithCGPoint:CGPointMake(MapWidth, 180)],
-                    [NSValue valueWithCGPoint:CGPointMake(MapWidth, 0 - MapHeight)],
-                    [NSValue valueWithCGPoint:CGPointMake(0 - MapWidth, 0 - MapHeight)],
-                    //[NSValue valueWithCGPoint:CGPointMake(30, 100)],
-                    //[NSValue valueWithCGPoint:CGPointMake(100, 100)],
-                    //[NSValue valueWithCGPoint:CGPointMake(180, 100)],
-                    //[NSValue valueWithCGPoint:CGPointMake(290, 60)],
-                    //[NSValue valueWithCGPoint:CGPointMake(320, 00)],
-                    nil] retain];
 	
-  CGPoint points[[_groundPoints count]];
-  for (int i = 0; i < [_groundPoints count]; i++) {
-    points[i] = [[_groundPoints objectAtIndex:i] CGPointValue];
-  }
-  
-  cpShape *shape;
-  cpBody *staticBody = cpBodyNew(INFINITY, INFINITY);
-  
-  for(int i = 0; i < _groundPoints.count - 1 ; i++){
-		//create segment
-		// add some other segments to play with
+	NSString *mainBundlePath = [[NSBundle mainBundle] pathForResource:@"level_1" ofType:@"plist" inDirectory:@"level_1"];
+	NSDictionary *dictLevel = [[NSDictionary alloc] initWithContentsOfFile:mainBundlePath];
+	NSDictionary *dictObjects = [dictLevel objectForKey: @"Objects"];
+	
+	NSEnumerator *enumeratorObjects = [dictObjects keyEnumerator];
+	id key;
+	while ((key = [enumeratorObjects nextObject])) {
+		NSArray *stuff = [dictObjects valueForKey: key];
+		CGPoint points[[stuff count]];
+		
+		for (int i = 0; i < [stuff count]; i++) {
+			NSDictionary *dictPoint = [stuff objectAtIndex: i];
+			float x = (float)[[dictPoint valueForKey: @"x"] floatValue];
+			float y = [[dictPoint valueForKey:@"y"] floatValue];
+			points[i] = CGPointMake(x, y);
+		}
+		cpShape *shape;
+		cpBody *staticBody = cpBodyNew(INFINITY, INFINITY);
+		
 		shape = cpSpaceAddShape(_worldSpace, 
-                            cpSegmentShapeNew(staticBody, 
-                                              [[_groundPoints objectAtIndex:i] CGPointValue], 
-                                              [[_groundPoints objectAtIndex:i + 1] CGPointValue], 
-                                              0.0f));
+														cpPolyShapeNew(staticBody, 
+																					 [stuff count], 
+																					 points, 
+																					 CGPointZero));
 		shape->e = 0.0f; 
-		shape->u = 1.0f;  
-		shape->collision_type = 2;
-    shape->group = 1;
-  }
-  
-  shape = cpSpaceAddShape(_worldSpace, 
-                          cpPolyShapeNew(staticBody, 
-                                         [_groundPoints count], 
-                                         points, 
-                                         CGPointZero));
-  shape->e = 0.0f; 
-  shape->u = 0.0f;  
-  shape->group = 1;
-  //shape->collision_type = 7;
+		shape->u = 0.0f;  
+		shape->group = 1;
+	};
 }
 
 - (void) addPlayerAndLandingPad

@@ -18,7 +18,6 @@
   
   CCLabelTTF *_label;
   cpSpace *_worldSpace;
-  NSArray *_groundPoints;
 }
 
 @property (nonatomic, retain) Player *player;
