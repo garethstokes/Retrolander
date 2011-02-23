@@ -24,6 +24,6 @@
 @property (nonatomic, retain) LandingPad *landingPad;
 
 - (void) createPhysics;
-- (void) mapTerrain;
+- (void) loadStaticObjects:(NSDictionary *)dictObjects;
 - (void) addPlayerAndLandingPad;
 @end

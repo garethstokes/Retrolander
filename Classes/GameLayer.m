@@ -27,8 +27,7 @@
     _label.position = ccp( size.width /2, 20 );
     [self addChild: _label];
 
-    [self createPhysics];
-    [self mapTerrain];		
+    [self createPhysics];		
     [self addPlayerAndLandingPad];		
     
     
@@ -110,13 +109,8 @@
   _worldSpace = space;
 }
 
-- (void) mapTerrain
+- (void) loadStaticObjects:(NSDictionary *)dictObjects
 {
-	
-	NSString *mainBundlePath = [[NSBundle mainBundle] pathForResource:@"level_1" ofType:@"plist" inDirectory:@"level_1"];
-	NSDictionary *dictLevel = [[NSDictionary alloc] initWithContentsOfFile:mainBundlePath];
-	NSDictionary *dictObjects = [dictLevel objectForKey: @"Objects"];
-	
 	NSEnumerator *enumeratorObjects = [dictObjects keyEnumerator];
 	id key;
 	while ((key = [enumeratorObjects nextObject])) {
@@ -140,7 +134,9 @@
 		shape->e = 0.0f; 
 		shape->u = 0.0f;  
 		shape->group = 1;
-	};
+		
+		[stuff release];
+	};	
 }
 
 - (void) addPlayerAndLandingPad

@@ -41,7 +41,7 @@
 	
 	//Load in Static objects
 	NSDictionary *dictObjects = [dictLevel objectForKey: @"StaticObjects"];
-	//[_gameLayer loadStaticObjects: dictObjects];
+	[_gameLayer loadStaticObjects: dictObjects];
 	
 	//Release loading objects
 	[dictObjects release];

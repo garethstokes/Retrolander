@@ -24,41 +24,6 @@
 	<integer>100</integer>
 	<key>Objects</key>
 	<dict>
-		<key>Astroid1</key>
-		<array>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>110</integer>
-				<key>RGBA</key>
-				<string>#FFFFFFFF</string>
-			</dict>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>125</integer>
-				<key>RGBA</key>
-				<string>#FFFFFFFF</string>
-			</dict>
-			<dict>
-				<key>x</key>
-				<integer>50</integer>
-				<key>y</key>
-				<integer>125</integer>
-				<key>RGBA</key>
-				<string>#FFFFFFFF</string>
-			</dict>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>110</integer>
-				<key>RGBA</key>
-				<string>#FFFFFFFF</string>
-			</dict>
-		</array>
 		<key>Ground</key>
 		<array>
 			<dict>

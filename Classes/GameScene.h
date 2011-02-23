@@ -11,7 +11,6 @@
 #import "GameLayer.h"
 
 @interface Game : CCScene {
-  GameLayer *_game;
 }
 
 @property (nonatomic, retain) GameLayer *game;
