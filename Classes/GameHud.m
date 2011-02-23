@@ -3,6 +3,7 @@
 #import "HelloWorldScene.h"
 #import "GameScene.h"
 #import "GameLayer.h"
+#import "EntrySceneButton.h"
 
 @implementation GameHud
 
@@ -20,6 +21,10 @@
   RestartButton *restart = [[RestartButton alloc] init];
   [restart setPosition:ccp(size.width - 30, 15)];
   [self addChild:restart];
+  
+  EntrySceneButton *end = [[EntrySceneButton alloc] initForHud];
+  [end setPosition:ccp(size.width - 100, 15)];
+  [self addChild:end];
   
   _fuel = [[FuelGauge alloc] initWithMax:MAX_FUEL];
   [self addChild:_fuel];
@@ -118,8 +123,7 @@
 {
   double offset = (playerFuel / (double)MAX_FUEL) * 100;
   offset = offset * 2;
-  NSLog([NSString stringWithFormat:@"fuel: %i", playerFuel]);
-  
+    
   const GLfloat line[] = {
     10.0f, 15.0f, //point B
     10.0f + offset, 15.0f, //point A

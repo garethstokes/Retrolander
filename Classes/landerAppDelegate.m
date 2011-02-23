@@ -13,6 +13,7 @@
 #import "HelloWorldScene.h"
 #import "RootViewController.h"
 #import "GameScene.h"
+#import "EntryScene.h"
 
 @implementation landerAppDelegate
 
@@ -112,7 +113,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [Game scene]];		
+	[[CCDirector sharedDirector] runWithScene: [EntryScene scene]];		
 }
 
 

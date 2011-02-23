@@ -317,6 +317,11 @@
 		E7F7E66A1314FA0C00FE900D /* world_6 in Resources */ = {isa = PBXBuildFile; fileRef = E7F7E5F31314FA0C00FE900D /* world_6 */; };
 		E7F7E66B1314FA0C00FE900D /* world_7 in Resources */ = {isa = PBXBuildFile; fileRef = E7F7E6191314FA0C00FE900D /* world_7 */; };
 		E7F7E66C1314FA0C00FE900D /* world_8 in Resources */ = {isa = PBXBuildFile; fileRef = E7F7E63F1314FA0C00FE900D /* world_8 */; };
+		E7F7E6861314FD0A00FE900D /* EntryScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7E6851314FD0A00FE900D /* EntryScene.m */; };
+		E7F7E68B1314FE8C00FE900D /* StartGameButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7E68A1314FE8C00FE900D /* StartGameButton.m */; };
+		E7F7E70613150CE300FE900D /* SettingsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7E70513150CE300FE900D /* SettingsButton.m */; };
+		E7F7E7B113151E7E00FE900D /* SettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7E7B013151E7E00FE900D /* SettingsScene.m */; };
+		E7F7E7C61315206600FE900D /* EntrySceneButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7E7C51315206600FE900D /* EntrySceneButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -650,6 +655,16 @@
 		E7F7E5F31314FA0C00FE900D /* world_6 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = world_6; sourceTree = "<group>"; };
 		E7F7E6191314FA0C00FE900D /* world_7 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = world_7; sourceTree = "<group>"; };
 		E7F7E63F1314FA0C00FE900D /* world_8 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = world_8; sourceTree = "<group>"; };
+		E7F7E6841314FD0A00FE900D /* EntryScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryScene.h; sourceTree = "<group>"; };
+		E7F7E6851314FD0A00FE900D /* EntryScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryScene.m; sourceTree = "<group>"; };
+		E7F7E6891314FE8C00FE900D /* StartGameButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartGameButton.h; sourceTree = "<group>"; };
+		E7F7E68A1314FE8C00FE900D /* StartGameButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartGameButton.m; sourceTree = "<group>"; };
+		E7F7E70413150CE300FE900D /* SettingsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsButton.h; sourceTree = "<group>"; };
+		E7F7E70513150CE300FE900D /* SettingsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsButton.m; sourceTree = "<group>"; };
+		E7F7E7AF13151E7E00FE900D /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
+		E7F7E7B013151E7E00FE900D /* SettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScene.m; sourceTree = "<group>"; };
+		E7F7E7C41315206600FE900D /* EntrySceneButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySceneButton.h; sourceTree = "<group>"; };
+		E7F7E7C51315206600FE900D /* EntrySceneButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySceneButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -760,6 +775,16 @@
 				E700E4AB12D9EABB00B3A621 /* SpaceBackground.h */,
 				E700E4AC12D9EABB00B3A621 /* SpaceBackground.m */,
 				E714C4B2130FA70A00FF7EF3 /* Common.h */,
+				E7F7E6841314FD0A00FE900D /* EntryScene.h */,
+				E7F7E6851314FD0A00FE900D /* EntryScene.m */,
+				E7F7E6891314FE8C00FE900D /* StartGameButton.h */,
+				E7F7E68A1314FE8C00FE900D /* StartGameButton.m */,
+				E7F7E70413150CE300FE900D /* SettingsButton.h */,
+				E7F7E70513150CE300FE900D /* SettingsButton.m */,
+				E7F7E7AF13151E7E00FE900D /* SettingsScene.h */,
+				E7F7E7B013151E7E00FE900D /* SettingsScene.m */,
+				E7F7E7C41315206600FE900D /* EntrySceneButton.h */,
+				E7F7E7C51315206600FE900D /* EntrySceneButton.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1465,6 +1490,11 @@
 				E7CCF77012C74B58001CE7C4 /* GameLayer.m in Sources */,
 				E7CCF7C812C75FC8001CE7C4 /* LandingPad.m in Sources */,
 				E700E4AD12D9EABB00B3A621 /* SpaceBackground.m in Sources */,
+				E7F7E6861314FD0A00FE900D /* EntryScene.m in Sources */,
+				E7F7E68B1314FE8C00FE900D /* StartGameButton.m in Sources */,
+				E7F7E70613150CE300FE900D /* SettingsButton.m in Sources */,
+				E7F7E7B113151E7E00FE900D /* SettingsScene.m in Sources */,
+				E7F7E7C61315206600FE900D /* EntrySceneButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
