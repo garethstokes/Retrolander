@@ -7,9 +7,8 @@
 //
 
 #import "GameScene.h"
+#import "Level.h"
 #import "GameHud.h"
-#import "GameLayer.h"
-#import "SpaceBackground.h"
 
 @implementation Game
 
@@ -18,16 +17,16 @@
 + (id) scene
 {
   Game *scene = [Game node];
-  
   GameHud *hud = [[GameHud alloc] init];
-  
-  GameLayer *game = [[GameLayer alloc] init];
-  [scene setGame: game];
-  SpaceBackground *background = [[SpaceBackground alloc] init];
+
+	Level *level = [[Level alloc] initWithWorldLevelIDs:1 levelID:1];
+	[level load];
+	
+  [scene setGame: level.gameLayer];
 
   [scene addChild:hud z:100];
-  [scene addChild:game z:1];
-  [scene addChild:background z:0];
+  [scene addChild:level.gameLayer z:1];
+  [scene addChild:level.background z:0];
 
   return scene;
 }
