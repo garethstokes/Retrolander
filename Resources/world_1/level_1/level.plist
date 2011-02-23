@@ -4,8 +4,6 @@
 <dict>
 	<key>name</key>
 	<string>Training Level</string>
-<<<<<<< HEAD
-=======
 	<key>StartingPosition</key>
 	<dict>
 		<key>X</key>
@@ -24,7 +22,6 @@
 	</dict>
 	<key>StartingFuel</key>
 	<integer>100</integer>
->>>>>>> Local Save of Level.plist
 	<key>Objects</key>
 	<dict>
 		<key>Astroid1</key>
