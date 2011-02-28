@@ -28,7 +28,7 @@
   [scene addChild:hud z:100];
   [scene addChild:game z:1];
   [scene addChild:background z:0];
-  
+
   return scene;
 }
 

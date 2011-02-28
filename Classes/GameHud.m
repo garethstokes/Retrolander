@@ -88,7 +88,6 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-  NSLog(@"ccTouchBegan Called");
   if ( ![self containsTouchLocation:touch] ) return NO;
   return YES;
 }
@@ -97,13 +96,10 @@
 {
   CGPoint touchPoint = [touch locationInView:[touch view]];
   touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
-  
-  NSLog(@"ccTouch Moved is called");
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-  [_text setString:@"reset"];
   [[CCDirector sharedDirector] replaceScene:[Game scene]];
 }
 

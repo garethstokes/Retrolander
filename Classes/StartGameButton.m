@@ -55,7 +55,6 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-  [_text setString:@"being touched"];
   if ( ![self containsTouchLocation:touch] ) return NO;
   return YES;
 }
@@ -68,8 +67,6 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-  NSLog(@"Start Game Pressed!!");
-  [_text setString:@"Start Game"];
   [[CCDirector sharedDirector] replaceScene:[Game scene]];
 }
 
