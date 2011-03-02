@@ -22,7 +22,7 @@
 	</dict>
 	<key>StartingFuel</key>
 	<integer>100</integer>
-	<key>Objects</key>
+	<key>StaticObjects</key>
 	<dict>
 		<key>Astroid1</key>
 		<array>

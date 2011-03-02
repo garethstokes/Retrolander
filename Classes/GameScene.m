@@ -13,22 +13,38 @@
 @implementation Game
 
 @synthesize game=_game;
+@synthesize hud=_hud;
+@synthesize level=_level;
+@synthesize levelID=_levelID;
+@synthesize worldID=_worldID;
 
-+ (id) scene
++ (id) scene:(int)worldID levelID:(int)levelID
 {
   Game *scene = [Game node];
-  GameHud *hud = [[GameHud alloc] init];
-
-	Level *level = [[Level alloc] initWithWorldLevelIDs:1 levelID:1];
-	[level load];
+  scene.hud = [[GameHud alloc] init];
 	
-  [scene setGame: level.gameLayer];
+	scene.levelID = levelID;
+	scene.worldID = worldID;
 
-  [scene addChild:hud z:100];
-  [scene addChild:level.gameLayer z:1];
-  [scene addChild:level.background z:0];
+	scene.level = [[Level alloc] initWithWorldLevelIDs:worldID levelID:levelID];
+	[scene.level load];
+	
+  [scene setGame: scene.level.gameLayer];
+
+  [scene addChild:scene.hud z:100];
+  [scene addChild:scene.level.gameLayer z:1];
+  [scene addChild:scene.level.background z:0];
 
   return scene;
 }
+
+- (void) dealloc
+{
+	[_hud release];
+	[_level release];
+	
+	[super dealloc];
+}
+
 
 @end

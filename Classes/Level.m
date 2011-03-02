@@ -18,11 +18,13 @@
 	if(!(self = [super init])) return nil;
 	
 	NSString *strWorldID = [NSString stringWithFormat:@"world_%d", worldID];
-	NSString *strLevelID = [NSString stringWithFormat:@"level_%d", levelID];
-	
-	_strPath = [NSString stringWithFormat:@"%s\\%s", strWorldID, strLevelID];
+	NSString *strLevelID = [NSString stringWithFormat:@"level_%d", levelID];	
+
+	_strPath = [NSString stringWithFormat:@"%@/%@", strWorldID, strLevelID];
 	_gameLayer = nil;
 	_background = nil;
+	
+	
 	
 	return self;	
 }
@@ -31,7 +33,7 @@
 {
 	_gameLayer = [[GameLayer alloc] init];
 	_background = [[SpaceBackground alloc] init];
-
+	
 	//Load in the plist and start processing the stuff
 	NSString *strPLISTFilename = [[NSBundle mainBundle] pathForResource:@"level" ofType:@"plist" inDirectory:_strPath];
 	NSDictionary *dictLevel = [[NSDictionary alloc] initWithContentsOfFile:strPLISTFilename];
@@ -43,9 +45,7 @@
 	NSDictionary *dictObjects = [dictLevel objectForKey: @"StaticObjects"];
 	[_gameLayer loadStaticObjects: dictObjects];
 	
-	//Release loading objects
-	[dictObjects release];
-	[dictLevel release];	
+	//[dictLevel release];
 }
 
 - (void) play

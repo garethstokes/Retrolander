@@ -94,13 +94,15 @@
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
-  CGPoint touchPoint = [touch locationInView:[touch view]];
-  touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
+  //CGPoint touchPoint = [touch locationInView:[touch view]];
+  //touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
 }
 
-- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event	
 {
-  [[CCDirector sharedDirector] replaceScene:[Game scene]];
+	Game *current = (Game *)[[CCDirector sharedDirector] runningScene];
+	
+  [[CCDirector sharedDirector] replaceScene:[Game scene:current.worldID levelID:current.levelID < 2 ? current.levelID + 1 : 1]];
 }
 
 @end
