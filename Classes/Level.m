@@ -24,7 +24,7 @@
 	_gameLayer = nil;
 	_background = nil;
 	
-	
+	NSLog(_strPath);
 	
 	return self;	
 }
