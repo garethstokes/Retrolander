@@ -34,6 +34,7 @@
 @interface GameHud : CCLayerColor
 {
   FuelGauge *_fuel;
+  CCLabelTTF *_levelInfo;
 }
 
 @end

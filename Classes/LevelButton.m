@@ -1,30 +1,41 @@
 //
-//  Button.m
+//  LevelButton.m
 //  lander
 //
-//  Created by gareth stokes on 23/02/11.
+//  Created by gareth stokes on 3/03/11.
 //  Copyright 2011 spacehip studio. All rights reserved.
 //
 
-#import "StartGameButton.h"
-#import "ChoseWorldScene.h"
+#import "LevelButton.h"
+#import "GameScene.h"
 
-@implementation StartGameButton
+@implementation LevelButton
 
-@synthesize text=_text;
+@synthesize worldId=_worldId;
+@synthesize levelId=_levelId;
 
-- (id) init
+- (id) initWith:(int)worldId levelId:(int)levelId
 {
-  if ((self=[super init])) {
-    // create and initialize a Label
-    
-    _text = [CCLabelTTF labelWithString:@"Start Game" fontName:@"Helvetica" fontSize:32];
-		[self addChild: _text];
-    
-    self.isTouchEnabled = YES;
-    [self setContentSize:CGSizeMake(60, 40)];
-  }
-  return self;
+  if(!(self = [super init])) return nil;
+	
+  _worldId = worldId;
+	_levelId = levelId;
+  
+  NSString *numberString = [NSString stringWithFormat:@"%i", levelId];
+  
+  _text = [CCLabelTTF labelWithString:numberString fontName:@"Helvetica" fontSize:32];
+  [self addChild: _text];
+  
+  self.isTouchEnabled = YES;
+  [self setContentSize:CGSizeMake(100, 60)];
+  
+	return self;
+}
+
+- (void) dealloc
+{
+  [_text dealloc];
+  [super dealloc];
 }
 
 - (CGRect)rect
@@ -61,18 +72,12 @@
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
-  //CGPoint touchPoint = [touch locationInView:[touch view]];
-  //touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
+  
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-	//Game *current = (Game *)[[CCDirector sharedDirector] runningScene];
-	
-  //[[CCDirector sharedDirector] replaceScene:[Game scene:1 levelID:1]];
-  
-  // let the player chose a world.
-  [[CCDirector sharedDirector] replaceScene:[ChoseWorldScene scene]];
+  [[CCDirector sharedDirector] replaceScene:[Game scene:_worldId levelID:_levelId]];
 }
 
 @end

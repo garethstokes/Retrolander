@@ -14,10 +14,13 @@
 	GameLayer *_gameLayer;
 	SpaceBackground *_background;
 	NSString *_strPath;
+  
+  NSString *_name;
 }
 
 @property (nonatomic, retain) GameLayer *gameLayer;
 @property (nonatomic, retain) SpaceBackground *background;
+@property (nonatomic, retain) NSString *name;
 
 - (id) initWithWorldLevelIDs:(int)worldID levelID:(int)levelID;
 - (void) load;

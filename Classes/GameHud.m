@@ -29,6 +29,10 @@
   _fuel = [[FuelGauge alloc] initWithMax:MAX_FUEL];
   [self addChild:_fuel];
   
+  _levelInfo = [CCLabelTTF labelWithString:@"W:1 L:1" fontName:@"Helvetica" fontSize:16];
+  [_levelInfo setPosition:CGPointMake(320, 15)];
+  [self addChild:_levelInfo];
+  
   return self;
 }
 
@@ -40,6 +44,8 @@
     Game * scene = (Game *)[[CCDirector sharedDirector] runningScene];
     int current_fuel = [[[scene game] player] fuel];
     [_fuel draw:current_fuel];
+    
+    [_levelInfo setString:[NSString stringWithFormat:@"w:%i l:%i", scene.worldID, scene.levelID]];
   }
 }
 
@@ -101,7 +107,6 @@
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event	
 {
 	Game *current = (Game *)[[CCDirector sharedDirector] runningScene];
-	
   [[CCDirector sharedDirector] replaceScene:[Game scene:current.worldID levelID:current.levelID < 2 ? current.levelID + 1 : 1]];
 }
 
