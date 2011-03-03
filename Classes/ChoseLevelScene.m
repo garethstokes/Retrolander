@@ -19,6 +19,12 @@
   ChoseLevelScene *scene = [ChoseLevelScene node];
   scene.worldId = worldId;
   
+  // set the heading.
+  CCLabelTTF *heading = [CCLabelTTF labelWithString:@"Choose a level" fontName:@"Helvetica" fontSize:32];
+  [heading setPosition:CGPointMake(240, 300)];
+  [scene addChild:heading];
+  
+  // bind the levels to the sceen.
   int y_level = 1;
   for (int i = 1; i <= MAX_LEVELS; i++)
   {

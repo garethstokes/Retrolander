@@ -107,7 +107,7 @@
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event	
 {
 	Game *current = (Game *)[[CCDirector sharedDirector] runningScene];
-  [[CCDirector sharedDirector] replaceScene:[Game scene:current.worldID levelID:current.levelID < 2 ? current.levelID + 1 : 1]];
+  [[CCDirector sharedDirector] replaceScene:[Game scene:current.worldID levelID:current.levelID]];
 }
 
 @end
