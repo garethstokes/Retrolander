@@ -8,6 +8,7 @@
 
 #import "ChoseLevelScene.h"
 #import "LevelButton.h"
+#import "Common.h"
 
 @implementation ChoseLevelScene
 
@@ -19,7 +20,7 @@
   scene.worldId = worldId;
   
   int y_level = 1;
-  for (int i = 1; i <= 12; i++)
+  for (int i = 1; i <= MAX_LEVELS; i++)
   {
     LevelButton *button = [[LevelButton alloc] initWith:worldId levelId:i];
     int offset = i % 4;

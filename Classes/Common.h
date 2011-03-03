@@ -10,6 +10,8 @@
 //#import "cocos2d.h"
 
 static const int MAX_FUEL = 200;
+static const int MAX_WORLDS = 8;
+static const int MAX_LEVELS = 12;
 
 enum {
   MapWidth = 480 * 4, 

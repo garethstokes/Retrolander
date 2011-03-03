@@ -7,7 +7,7 @@
 //
 
 #import "World.h"
-
+#import "Common.h"
 
 @implementation World
 
@@ -26,7 +26,7 @@
 {
   NSMutableArray *worlds = [[NSMutableArray alloc] init];
     
-  for (int i = 1; i <= 8; i++) {
+  for (int i = 1; i <= MAX_WORLDS; i++) {
     World *w = [[World alloc] initWith:i];
     [worlds addObject:w];
     [w release];
