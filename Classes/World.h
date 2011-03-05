@@ -13,6 +13,7 @@
 @property (nonatomic) int worldId;
 
 - (id) initWith:(int) worldId;
+- (NSArray *) levels;
 + (NSArray *) all;
 
 @end

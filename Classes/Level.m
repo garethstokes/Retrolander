@@ -13,6 +13,8 @@
 @synthesize gameLayer=_gameLayer;
 @synthesize background=_background;
 @synthesize name=_name;
+@synthesize levelId=_levelId;
+@synthesize worldId=_worldId;
 
 - (id) initWithWorldLevelIDs:(int)worldID levelID:(int)levelID
 {
@@ -24,6 +26,9 @@
 	_strPath = [NSString stringWithFormat:@"%@/%@", strWorldID, strLevelID];
 	_gameLayer = nil;
 	_background = nil;
+  
+  _levelId = levelID;
+  _worldId = worldID;
 	
 	return self;	
 }

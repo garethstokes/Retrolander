@@ -8,6 +8,7 @@
 
 #import "World.h"
 #import "Common.h"
+#import "Level.h"
 
 @implementation World
 
@@ -20,6 +21,21 @@
   _worldId = worldId;
   
   return self;
+}
+
+- (NSArray *) levels
+{
+  NSMutableArray *levels = [[NSMutableArray alloc] init];
+  
+  for (int i = 1; i <= MAX_LEVELS; i++) {
+    Level *level = [[Level alloc] initWithWorldLevelIDs:_worldId levelID:i];
+    [levels addObject:level];
+    [level release];
+  }
+  
+  NSArray *a = [NSArray arrayWithArray:levels];
+  [levels release];
+  return a;
 }
 
 + (NSArray *) all
