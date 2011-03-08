@@ -4,43 +4,26 @@
 <dict>
 	<key>name</key>
 	<string>Training Level</string>
-	<key>Objects</key>
+	<key>StartingPosition</key>
 	<dict>
-		<key>Astroid1</key>
-		<array>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>110</integer>
-				<key>RGBA</key>
-				<string>#FFFFFFFF</string>
-			</dict>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>125</integer>
-				<key>RGBA</key>
-				<string>#FFFFFFFF</string>
-			</dict>
-			<dict>
-				<key>x</key>
-				<integer>50</integer>
-				<key>y</key>
-				<integer>125</integer>
-				<key>RGBA</key>
-				<string>#FFFFFFFF</string>
-			</dict>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>110</integer>
-				<key>RGBA</key>
-				<string>#FFFFFFFF</string>
-			</dict>
-		</array>
+		<key>X</key>
+		<integer>0</integer>
+		<key>Y</key>
+		<integer>0</integer>
+	</dict>
+	<key>LandingPad</key>
+	<dict>
+		<key>CenterX</key>
+		<integer>0</integer>
+		<key>CenterY</key>
+		<integer>-100</integer>
+		<key>Width</key>
+		<integer>50</integer>
+	</dict>
+	<key>StartingFuel</key>
+	<integer>100</integer>
+	<key>StaticObjects</key>
+	<dict>
 		<key>Ground</key>
 		<array>
 			<dict>
