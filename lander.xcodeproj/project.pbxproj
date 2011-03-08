@@ -301,6 +301,7 @@
 		E0D2C48A12AEDE5C008D5DBB /* cpVect.c in Sources */ = {isa = PBXBuildFile; fileRef = E0D2C45312AEDE5C008D5DBB /* cpVect.c */; };
 		E0D2C48B12AEDE5C008D5DBB /* prime.h in Headers */ = {isa = PBXBuildFile; fileRef = E0D2C45412AEDE5C008D5DBB /* prime.h */; };
 		E0F81038120A173C005866B8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F81037120A173C005866B8 /* RootViewController.m */; };
+		E700582A1326523C00307B87 /* LanderImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E70058291326523C00307B87 /* LanderImageButton.m */; };
 		E700E4AD12D9EABB00B3A621 /* SpaceBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = E700E4AC12D9EABB00B3A621 /* SpaceBackground.m */; };
 		E700E4AF12D9EB9300B3A621 /* Space.plist in Resources */ = {isa = PBXBuildFile; fileRef = E700E4AE12D9EB9300B3A621 /* Space.plist */; };
 		E700E52B12D9F20B00B3A621 /* Galaxy.plist in Resources */ = {isa = PBXBuildFile; fileRef = E700E52A12D9F20B00B3A621 /* Galaxy.plist */; };
@@ -308,7 +309,6 @@
 		E75EFEAE131FB24A00AB239F /* ChoseWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFEAD131FB24A00AB239F /* ChoseWorldScene.m */; };
 		E75EFECB131FB64200AB239F /* WorldButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFECA131FB64200AB239F /* WorldButton.m */; };
 		E75EFF4A131FC08F00AB239F /* ChoseLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFF49131FC08F00AB239F /* ChoseLevelScene.m */; };
-		E75EFF4D131FC13F00AB239F /* LevelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFF4C131FC13F00AB239F /* LevelButton.m */; };
 		E7CCF0F412C0A42D001CE7C4 /* drawSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF0F312C0A42D001CE7C4 /* drawSpace.c */; };
 		E7CCF37E12C5EEA1001CE7C4 /* GameHud.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF37D12C5EEA1001CE7C4 /* GameHud.m */; };
 		E7CCF73012C7453B001CE7C4 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF72F12C7453B001CE7C4 /* Player.m */; };
@@ -638,6 +638,8 @@
 		E0F81035120A173C005866B8 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		E0F81036120A173C005866B8 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		E0F81037120A173C005866B8 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		E70058281326523C00307B87 /* LanderImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanderImageButton.h; sourceTree = "<group>"; };
+		E70058291326523C00307B87 /* LanderImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanderImageButton.m; sourceTree = "<group>"; };
 		E700E4AB12D9EABB00B3A621 /* SpaceBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceBackground.h; sourceTree = "<group>"; };
 		E700E4AC12D9EABB00B3A621 /* SpaceBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceBackground.m; sourceTree = "<group>"; };
 		E700E4AE12D9EB9300B3A621 /* Space.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Space.plist; sourceTree = "<group>"; };
@@ -651,8 +653,6 @@
 		E75EFECA131FB64200AB239F /* WorldButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldButton.m; sourceTree = "<group>"; };
 		E75EFF48131FC08F00AB239F /* ChoseLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseLevelScene.h; sourceTree = "<group>"; };
 		E75EFF49131FC08F00AB239F /* ChoseLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoseLevelScene.m; sourceTree = "<group>"; };
-		E75EFF4B131FC13F00AB239F /* LevelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelButton.h; sourceTree = "<group>"; };
-		E75EFF4C131FC13F00AB239F /* LevelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelButton.m; sourceTree = "<group>"; };
 		E7CCF0F212C0A42D001CE7C4 /* drawSpace.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.h; sourceTree = "<group>"; };
 		E7CCF0F312C0A42D001CE7C4 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.c; sourceTree = "<group>"; };
 		E7CCF37C12C5EEA1001CE7C4 /* GameHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHud.h; sourceTree = "<group>"; };
@@ -813,8 +813,8 @@
 				E75EFECA131FB64200AB239F /* WorldButton.m */,
 				E75EFF48131FC08F00AB239F /* ChoseLevelScene.h */,
 				E75EFF49131FC08F00AB239F /* ChoseLevelScene.m */,
-				E75EFF4B131FC13F00AB239F /* LevelButton.h */,
-				E75EFF4C131FC13F00AB239F /* LevelButton.m */,
+				E70058281326523C00307B87 /* LanderImageButton.h */,
+				E70058291326523C00307B87 /* LanderImageButton.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1530,7 +1530,7 @@
 				E75EFEAE131FB24A00AB239F /* ChoseWorldScene.m in Sources */,
 				E75EFECB131FB64200AB239F /* WorldButton.m in Sources */,
 				E75EFF4A131FC08F00AB239F /* ChoseLevelScene.m in Sources */,
-				E75EFF4D131FC13F00AB239F /* LevelButton.m in Sources */,
+				E700582A1326523C00307B87 /* LanderImageButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
