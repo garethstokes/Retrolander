@@ -7,13 +7,9 @@
 //
 
 #import "cocos2d.h"
-#import "StartGameButton.h"
 
 @interface EntryScene : CCScene {
-  StartGameButton *_start;
 }
-
-@property (nonatomic, retain) StartGameButton *start;
 
 + (id) scene;
 

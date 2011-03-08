@@ -1,6 +1,5 @@
 #import "GameHud.h"
 #import "CCTouchDispatcher.h"
-#import "HelloWorldScene.h"
 #import "GameScene.h"
 #import "GameLayer.h"
 #import "EntrySceneButton.h"
