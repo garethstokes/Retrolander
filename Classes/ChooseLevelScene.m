@@ -6,20 +6,20 @@
 //  Copyright 2011 spacehip studio. All rights reserved.
 //
 
-#import "ChoseLevelScene.h"
+#import "ChooseLevelScene.h"
 #import "Common.h"
 #import "World.h"
 #import "Level.h"
 #import "LanderImageButton.h"
 #import "GameScene.h"
 
-@implementation ChoseLevelScene
+@implementation ChooseLevelScene
 
 @synthesize worldId=_worldId;
 
 + (id) sceneWith:(int) worldId
 {
-  ChoseLevelScene *scene = [ChoseLevelScene node];
+  ChooseLevelScene *scene = [ChooseLevelScene node];
   scene.worldId = worldId;
   
   // set the heading.

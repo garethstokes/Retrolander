@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 
 
-@interface ChoseLevelScene : CCScene {
+@interface ChooseLevelScene : CCScene {
   int _worldId;
 }
 

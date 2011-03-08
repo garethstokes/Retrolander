@@ -8,7 +8,8 @@
 
 #import "ChoseWorldScene.h"
 #import "World.h"
-#import "WorldButton.h"
+#import "LanderImageButton.h"
+#import "ChooseLevelScene.h"
 
 @implementation ChoseWorldScene
 
@@ -24,16 +25,41 @@
   // bind the worlds.
   NSArray *worlds = [World all];
   
+  CCMenu *menu = [CCMenu menuWithItems:nil];
+  
+  int y_level = 1;
   for (World *w in worlds)
   {
-    WorldButton *button = [[WorldButton alloc] initWith:w.worldId];
-    int x = 120 * (w.worldId > 4 ? w.worldId - 4 : w.worldId) - 60;
-    int y = w.worldId > 4 ? 50 : 150;
-    [button setPosition:CGPointMake(x, y)];
-    [scene addChild:button];
+    NSString *path = [NSString stringWithFormat:@"world_%d/screenshot.png", [w worldId]];
+    LanderImageButton *button = [LanderImageButton
+                                 itemFromNormalImage:path selectedImage:path
+                                 target:self 
+                                 selector:@selector(buttonTapped:)];
+    [button setContentSize:CGSizeMake(100, 80)];
+    [button setWorldId:[w worldId]];
+    [button setLevelId:1];
+    [menu addChild:button];
+    
+    int offset = [w worldId] % 4;
+    if (offset == 0)
+    {
+      y_level++;
+      [menu setPosition:CGPointMake(230, 280 - (80 * y_level - 40))];
+      [menu alignItemsHorizontallyWithPadding:20];
+      [scene addChild:menu];
+      menu = [CCMenu menuWithItems:nil];
+    }
   }
   
+  [menu alignItemsHorizontallyWithPadding:20];
+  [scene addChild:menu];
+  
   return scene;
+}
+
++ (void)buttonTapped:(id)sender {
+  LanderImageButton *button = (LanderImageButton *)sender;
+  [[CCDirector sharedDirector] replaceScene:[ChooseLevelScene sceneWith:[button worldId]]];
 }
 
 @end

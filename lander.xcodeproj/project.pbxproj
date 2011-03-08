@@ -307,8 +307,7 @@
 		E700E52B12D9F20B00B3A621 /* Galaxy.plist in Resources */ = {isa = PBXBuildFile; fileRef = E700E52A12D9F20B00B3A621 /* Galaxy.plist */; };
 		E75EFE97131FAF3A00AB239F /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFE96131FAF3A00AB239F /* World.m */; };
 		E75EFEAE131FB24A00AB239F /* ChoseWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFEAD131FB24A00AB239F /* ChoseWorldScene.m */; };
-		E75EFECB131FB64200AB239F /* WorldButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFECA131FB64200AB239F /* WorldButton.m */; };
-		E75EFF4A131FC08F00AB239F /* ChoseLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFF49131FC08F00AB239F /* ChoseLevelScene.m */; };
+		E75EFF4A131FC08F00AB239F /* ChooseLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFF49131FC08F00AB239F /* ChooseLevelScene.m */; };
 		E7CCF0F412C0A42D001CE7C4 /* drawSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF0F312C0A42D001CE7C4 /* drawSpace.c */; };
 		E7CCF37E12C5EEA1001CE7C4 /* GameHud.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF37D12C5EEA1001CE7C4 /* GameHud.m */; };
 		E7CCF73012C7453B001CE7C4 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF72F12C7453B001CE7C4 /* Player.m */; };
@@ -649,10 +648,8 @@
 		E75EFE96131FAF3A00AB239F /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
 		E75EFEAC131FB24A00AB239F /* ChoseWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseWorldScene.h; sourceTree = "<group>"; };
 		E75EFEAD131FB24A00AB239F /* ChoseWorldScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoseWorldScene.m; sourceTree = "<group>"; };
-		E75EFEC9131FB64200AB239F /* WorldButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldButton.h; sourceTree = "<group>"; };
-		E75EFECA131FB64200AB239F /* WorldButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldButton.m; sourceTree = "<group>"; };
-		E75EFF48131FC08F00AB239F /* ChoseLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseLevelScene.h; sourceTree = "<group>"; };
-		E75EFF49131FC08F00AB239F /* ChoseLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoseLevelScene.m; sourceTree = "<group>"; };
+		E75EFF48131FC08F00AB239F /* ChooseLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLevelScene.h; sourceTree = "<group>"; };
+		E75EFF49131FC08F00AB239F /* ChooseLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLevelScene.m; sourceTree = "<group>"; };
 		E7CCF0F212C0A42D001CE7C4 /* drawSpace.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.h; sourceTree = "<group>"; };
 		E7CCF0F312C0A42D001CE7C4 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.c; sourceTree = "<group>"; };
 		E7CCF37C12C5EEA1001CE7C4 /* GameHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHud.h; sourceTree = "<group>"; };
@@ -809,10 +806,8 @@
 				E75EFE96131FAF3A00AB239F /* World.m */,
 				E75EFEAC131FB24A00AB239F /* ChoseWorldScene.h */,
 				E75EFEAD131FB24A00AB239F /* ChoseWorldScene.m */,
-				E75EFEC9131FB64200AB239F /* WorldButton.h */,
-				E75EFECA131FB64200AB239F /* WorldButton.m */,
-				E75EFF48131FC08F00AB239F /* ChoseLevelScene.h */,
-				E75EFF49131FC08F00AB239F /* ChoseLevelScene.m */,
+				E75EFF48131FC08F00AB239F /* ChooseLevelScene.h */,
+				E75EFF49131FC08F00AB239F /* ChooseLevelScene.m */,
 				E70058281326523C00307B87 /* LanderImageButton.h */,
 				E70058291326523C00307B87 /* LanderImageButton.m */,
 			);
@@ -1528,8 +1523,7 @@
 				AB9264CE1314FE81000167BE /* Level.m in Sources */,
 				E75EFE97131FAF3A00AB239F /* World.m in Sources */,
 				E75EFEAE131FB24A00AB239F /* ChoseWorldScene.m in Sources */,
-				E75EFECB131FB64200AB239F /* WorldButton.m in Sources */,
-				E75EFF4A131FC08F00AB239F /* ChoseLevelScene.m in Sources */,
+				E75EFF4A131FC08F00AB239F /* ChooseLevelScene.m in Sources */,
 				E700582A1326523C00307B87 /* LanderImageButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
