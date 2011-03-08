@@ -9,6 +9,7 @@
 #import "GameLayer.h"
 #import "CCTouchDispatcher.h"
 #import "chipmunk.h"
+#import "StaticObject.h"
 
 @implementation GameLayer
 @synthesize player=_player;
@@ -37,11 +38,22 @@
   return self;
 }
 
+static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
+{
+  id <GameObject> obj = shape->data;
+	
+	[obj draw:shape ];
+}	
+
 - (void) draw
 {
-	[_player draw:_worldSpace];
+	//[_player draw:_worldSpace];
 	
-	[_landingPad draw:_worldSpace];
+	//[_landingPad draw:_worldSpace];
+	
+	//loop through the static objects and draw
+	cpSpaceHashEach(_worldSpace->activeShapes, (cpSpaceHashIterator)drawStaticObject, self);
+	cpSpaceHashEach(_worldSpace->staticShapes, (cpSpaceHashIterator)drawStaticObject, self);
 }
 
 - (void) createPhysics
@@ -116,11 +128,13 @@
 	while ((key = [enumeratorObjects nextObject])) {
 		NSArray *stuff = [dictObjects valueForKey: key];
 		CGPoint points[[stuff count]];
+		NSString *colors[[stuff count]];
 		
 		for (int i = 0; i < [stuff count]; i++) {
 			NSDictionary *dictPoint = [stuff objectAtIndex: i];
 			float x = (float)[[dictPoint valueForKey: @"x"] floatValue];
 			float y = [[dictPoint valueForKey:@"y"] floatValue];
+			colors[i] = [dictPoint valueForKey:@"RGBA"];
 			points[i] = CGPointMake(x, y);
 		}
 		cpShape *shape;
@@ -134,6 +148,7 @@
 		shape->e = 0.0f; 
 		shape->u = 0.0f;  
 		shape->group = 1;
+		shape->data = [[LevelStaticObject alloc] initWithColors: colors];
 		
 		[stuff release];
 	};	
@@ -159,25 +174,16 @@
 -(void) step: (ccTime) delta
 {
   if ([_player hasCrashed]) return;
-	int steps = 2;
+	int steps = 5;
 	CGFloat dt = delta/(CGFloat)steps;
   
   float distance = ccpDistance([_player position], [_landingPad position]) - 16;
   cpVect offset = ccpAngleBetween([_landingPad position], [_player position]);
-  //float angle = CC_RADIANS_TO_DEGREES( cpvtoangle(offset) );
   float angle = cpvtoangle(offset);
   
   cpVect middle = ccpGetOffset(angle, distance / 2);
   
-  //NSLog([NSString stringWithFormat:@"Status: %s, distance: %f, angle: %f, offset: (%f,%f)", 
-//                     [_player hasCrashed] ? "CRASHED" : "OK", 
-//                     distance,
-//                     angle,
-//                     middle.x,
-//                     middle.y]);
-  
   middle = ccpAdd([_landingPad position], middle);
-  //middle = [_player position];
   [self.camera setCenterX:middle.x - 240 centerY:middle.y - 160 centerZ:0];
   [self.camera setEyeX:middle.x - 240 eyeY:middle.y - 160 eyeZ:distance / 3];
   

@@ -211,12 +211,12 @@ void drawSegmentShape(cpBody *body, cpSegmentShape *seg, cpSpace *space)
 		glPushMatrix(); {
 			cpVect d = cpvsub(b, a);
 			cpVect r = cpvmult(d, seg->r/cpvlength(d));
-
+			
 			const GLfloat matrix[] = {
-				 r.x, r.y, 0.0f, 0.0f,
+				r.x, r.y, 0.0f, 0.0f,
 				-r.y, r.x, 0.0f, 0.0f,
-				 d.x, d.y, 0.0f, 0.0f,
-				 a.x, a.y, 0.0f, 1.0f,
+				d.x, d.y, 0.0f, 0.0f,
+				a.x, a.y, 0.0f, 1.0f,
 			};
 			glMultMatrixf(matrix);
 			
@@ -500,17 +500,6 @@ drawSpace(cpSpace *space, drawSpaceOptions *options)
 			cpBody *body = (cpBody *)bodies->arr[i];
 			ccDrawPoint(body->p);
 		}
-
-//			glColor3f(0.5f, 0.5f, 0.5f);
-//			cpArray *components = space->components;
-//			for(int i=0; i<components->num; i++){
-//				cpBody *root = components->arr[i];
-//				cpBody *body = root, *next;
-//				do {
-//					next = body->node.next;
-//					glVertex2f(body->p.x, body->p.y);
-//				} while((body = next) != root);
-//			}
 	}
 
 	if(options->collisionPointSize){

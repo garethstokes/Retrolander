@@ -82,7 +82,7 @@ drawSpaceOptions _options = {
 
 
 
-- (void) draw:(cpSpace *)space
+- (void) draw:(cpShape *) shape;
 {
 	// Default GL states: GL_TEXTURE_2D, GL_VERTEX_ARRAY, GL_COLOR_ARRAY, GL_TEXTURE_COORD_ARRAY
 	// Needed states:  GL_VERTEX_ARRAY, 
@@ -117,8 +117,6 @@ drawSpaceOptions _options = {
 	glEnable(GL_TEXTURE_2D);
 	glEnableClientState(GL_COLOR_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);	
-	
-	drawSpace(space, &_options);
 }
 	
 
@@ -131,9 +129,16 @@ drawSpaceOptions _options = {
   if (player_velocity.x > 55 || player_velocity.y > 55) 
   {
     _hasCrashed = YES;
+		
+		//create explosion and add spinning parts :(
+		
     return;
   }
   
+	//play you be a winner animation ... yay...
+	
+	
+	
   _hasLanded = YES; 
 }
 
@@ -171,6 +176,9 @@ drawSpaceOptions _options = {
 	_shape = cpPolyShapeNew(body, 3, tris, CGPointZero);
 	_shape->e = 0.0f; 
 	_shape->u = 50.0f;
+	
+	_shape->data = self;
+	
 	cpSpaceAddShape(space, _shape);
 	
 	_flame = cpPolyShapeNew(body, 3, flameTris, CGPointZero);

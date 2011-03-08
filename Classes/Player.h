@@ -10,8 +10,9 @@
 #import "cocos2d.h"
 #import "chipmunk.h"
 #import "Common.h"
+#import "GameProtocols.h"
 
-@interface Player : NSObject {
+@interface Player : NSObject <GameObject> {
   BOOL _hasCrashed;
   BOOL _hasLanded;
   BOOL _isThrusting;  
@@ -33,10 +34,8 @@
 
 - (void) disableThrusting;
 - (void) setAngle:(cpFloat)value;
-- (void) step:(ccTime) delta;
 - (void) land;
 - (id) initWith:(cpSpace *)worldSpace;
-- (void) draw:(cpSpace *)space;
 - (cpVect) position;
 
 @end

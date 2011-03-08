@@ -18,10 +18,20 @@
 @implementation LandingPad
 @synthesize shape=_shape;
 
-
-- (void) draw:(cpSpace *)space
+-(void) step:(ccTime) delta
 {
-	drawSegmentShape(_shape->body, (cpSegmentShape *)_shape, space);
+}
+
+- (void) draw:(cpShape *) shape
+{
+	cpSegmentShape *seg = (cpSegmentShape *)_shape;
+	
+	cpVect a = seg->ta;
+	cpVect b = seg->tb;
+	
+  glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
+	glLineWidth(3.0);
+	ccDrawLine(a,b);	
 }
 
 - (cpVect) position
@@ -37,8 +47,8 @@
   //cpVect first = ccp(290, 230);
 	//cpVect second = ccp(330, 230);
   
-    cpVect first = ccp(10, 230);
-  	cpVect second = ccp(50, 230);
+	cpVect first = ccp(10, 230);
+	cpVect second = ccp(50, 230);
   
 	cpBody *staticBody = cpBodyNew(INFINITY, INFINITY);
   
@@ -46,6 +56,8 @@
   _shape->e = 1.0f;
   _shape->u = 5000.0f;
   _shape->collision_type = 2;
+	
+	_shape->data = self;
 	
 	cpSpaceAddStaticShape(worldSpace, _shape);
   

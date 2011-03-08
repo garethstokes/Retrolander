@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "chipmunk.h"
+#import "GameProtocols.h"
 
-@interface LandingPad : NSObject {
+@interface LandingPad : NSObject <GameObject> {
 cpShape *_shape;
 }
 
 @property (nonatomic) cpShape* shape;
 
 - (id) initAgainst:(cpSpace *)worldSpace;
-- (void) draw:(cpSpace *)space;
 - (cpVect) position;
 
 @end

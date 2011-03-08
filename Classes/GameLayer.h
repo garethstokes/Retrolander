@@ -11,7 +11,6 @@
 #import "Player.h"
 #import "LandingPad.h"
 
-
 @interface GameLayer : CCLayer {
   Player *_player;
   LandingPad *_landingPad;
