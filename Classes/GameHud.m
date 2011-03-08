@@ -2,6 +2,7 @@
 #import "CCTouchDispatcher.h"
 #import "GameScene.h"
 #import "GameLayer.h"
+#import "EntryScene.h"
 
 @implementation GameHud
 
@@ -16,13 +17,23 @@
   [self setPosition:ccp(0, size.height - 30)];
   [self setContentSize:CGSizeMake(size.width, 30)];
   
-  RestartButton *restart = [[RestartButton alloc] init];
-  [restart setPosition:ccp(size.width - 30, 15)];
-  [self addChild:restart];
+  CCLabelTTF *restartLabel = [CCLabelTTF labelWithString:@"restart" fontName:@"Helvetica" fontSize:16];
+  CCMenuItem *restartButton = [CCMenuItemLabel
+                                itemWithLabel:restartLabel
+                                target:self 
+                                selector:@selector(restartGame:)];
+  [restartButton setPosition:CGPointMake(210, 15)];
   
-//  CCMenuItem *end = [[EntrySceneButton alloc] initForHud];
-//  [end setPosition:ccp(size.width - 100, 15)];
-//  [self addChild:end];
+  CCLabelTTF *endGameLabel = [CCLabelTTF labelWithString:@"end" fontName:@"Helvetica" fontSize:16];
+  CCMenuItem *endButton = [CCMenuItemLabel
+                           itemWithLabel:endGameLabel
+                           target:self 
+                           selector:@selector(endGame:)];
+  [endButton setPosition:CGPointMake(160, 15)];
+
+  CCMenu *menu = [CCMenu menuWithItems:restartButton, endButton, nil];
+  [menu setPosition:CGPointMake(240, 0)];
+  [self addChild:menu];
   
   _fuel = [[FuelGauge alloc] initWithMax:MAX_FUEL];
   [self addChild:_fuel];
@@ -32,6 +43,17 @@
   [self addChild:_levelInfo];
   
   return self;
+}
+
+- (void)restartGame:(id)sender
+{
+  Game *current = (Game *)[[CCDirector sharedDirector] runningScene];
+  [[CCDirector sharedDirector] replaceScene:[Game scene:current.worldID levelID:current.levelID]];
+}
+
+- (void)endGame:(id)sender
+{
+  [[CCDirector sharedDirector] replaceScene:[EntryScene scene]];
 }
 
 - (void) draw
@@ -45,67 +67,6 @@
     
     [_levelInfo setString:[NSString stringWithFormat:@"w:%i l:%i", scene.worldID, scene.levelID]];
   }
-}
-
-@end
-
-@implementation RestartButton
-
-@synthesize text=_text;
-
-- (id) init
-{
-  if ((self=[super init])) {
-    // create and initialize a Label
-    _text = [CCLabelTTF labelWithString:@"restart" fontName:@"Helvetica" fontSize:16];
-		[self addChild: _text];
-    
-    self.isTouchEnabled = YES;
-    [self setContentSize:CGSizeMake(30, 20)];
-  }
-  return self;
-}
-
-- (CGRect)rect
-{
-  CGSize s = [self contentSize];
-  return CGRectMake(-s.width, - s.height, s.width, s.height);
-}
-
-- (BOOL)containsTouchLocation:(UITouch *)touch
-{
-  return CGRectContainsPoint(self.rect, [self convertTouchToNodeSpaceAR:touch]);
-}
-
-- (void)onEnter
-{
-  [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-  [super onEnter];
-}
-
-
-- (void)onExit
-{
-  [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-  [super onExit];
-}
-
-- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
-{
-  if ( ![self containsTouchLocation:touch] ) return NO;
-  return YES;
-}
-
-- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
-{
-  //CGPoint touchPoint = [touch locationInView:[touch view]];
-  //touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
-}
-
-- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event	
-{
-	Game *current = (Game *)[[CCDirector sharedDirector] runningScene];
-  [[CCDirector sharedDirector] replaceScene:[Game scene:current.worldID levelID:current.levelID]];
 }
 
 @end

@@ -9,17 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-// RESTART BUTTON
-@interface RestartButton : CCLayer<CCTargetedTouchDelegate>
-{
-  CCLabelTTF *_text;
-}
-
-@property (nonatomic, retain) CCLabelTTF *text;
-
-- (CGRect) rect;
-@end
-
 // FUEL GAUGE
 @interface FuelGauge : CCNode
 {
