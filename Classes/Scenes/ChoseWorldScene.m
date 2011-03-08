@@ -23,8 +23,7 @@
   [scene addChild:heading];
   
   // bind the worlds.
-  NSArray *worlds = [World all];
-  
+  NSArray *worlds = [World all];  
   CCMenu *menu = [CCMenu menuWithItems:nil];
   
   int y_level = 1;
