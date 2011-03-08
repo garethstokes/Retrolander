@@ -42,11 +42,22 @@
 static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 {
   id <GameObject> obj = shape->data;
+	
+	[obj draw:shape ];
+}	
+
+static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
+{
+  id <GameObject> obj = shape->data;
 	[obj draw:shape];
 }	
 
 - (void) draw
 {
+	//[_player draw:_worldSpace];
+	
+	//[_landingPad draw:_worldSpace];
+	
 	//loop through the static objects and draw
 	cpSpaceHashEach(_worldSpace->activeShapes, (cpSpaceHashIterator)drawStaticObject, self);
 	cpSpaceHashEach(_worldSpace->staticShapes, (cpSpaceHashIterator)drawStaticObject, self);

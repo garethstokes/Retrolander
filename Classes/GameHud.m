@@ -39,8 +39,12 @@
   [self addChild:_fuel];
   
   _levelInfo = [CCLabelTTF labelWithString:@"W:1 L:1" fontName:@"Helvetica" fontSize:16];
-  [_levelInfo setPosition:CGPointMake(320, 15)];
+  [_levelInfo setPosition:CGPointMake(310, 15)];
   [self addChild:_levelInfo];
+  
+  _livesInfo = [CCLabelTTF labelWithString:@"lives: 0" fontName:@"Helvetica" fontSize:16];
+  [_livesInfo setPosition:CGPointMake(250, 15)];
+  [self addChild:_livesInfo];
   
   return self;
 }
@@ -62,10 +66,15 @@
   
   if (_fuel != nil) {
     Game * scene = (Game *)[[CCDirector sharedDirector] runningScene];
-    int current_fuel = [[[scene game] player] fuel];
+    Player *player = [[scene game] player];
+    
+    int current_fuel = [player fuel];
     [_fuel draw:current_fuel];
     
+    int current_lives = [player lives];
+        
     [_levelInfo setString:[NSString stringWithFormat:@"w:%i l:%i", scene.worldID, scene.levelID]];
+    [_livesInfo setString:[NSString stringWithFormat:@"lives: %i", current_lives]];
   }
 }
 

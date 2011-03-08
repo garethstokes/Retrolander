@@ -786,6 +786,14 @@
 				E75EFE96131FAF3A00AB239F /* World.m */,
 				E70058281326523C00307B87 /* LanderImageButton.h */,
 				E70058291326523C00307B87 /* LanderImageButton.m */,
+				E75EFEAC131FB24A00AB239F /* ChoseWorldScene.h */,
+				E75EFEAD131FB24A00AB239F /* ChoseWorldScene.m */,
+				E75EFEC9131FB64200AB239F /* WorldButton.h */,
+				E75EFECA131FB64200AB239F /* WorldButton.m */,
+				E75EFF48131FC08F00AB239F /* ChoseLevelScene.h */,
+				E75EFF49131FC08F00AB239F /* ChoseLevelScene.m */,
+				E75EFF4B131FC13F00AB239F /* LevelButton.h */,
+				E75EFF4C131FC13F00AB239F /* LevelButton.m */,
 				AB6E411813251D3E00136109 /* StaticObject.h */,
 				AB6E411913251D3E00136109 /* StaticObject.m */,
 				AB61645F132664FD0091B407 /* GameProtocols.h */,
@@ -1524,6 +1532,8 @@
 				E70058CA13265D6B00307B87 /* EntryScene.m in Sources */,
 				E70058CB13265D6B00307B87 /* GameScene.m in Sources */,
 				E70058CC13265D6B00307B87 /* SettingsScene.m in Sources */,
+				E75EFECB131FB64200AB239F /* WorldButton.m in Sources */,
+				E75EFF4D131FC13F00AB239F /* LevelButton.m in Sources */,
 				AB6E411A13251D3E00136109 /* StaticObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -107,7 +107,6 @@
 	glEnable(GL_TEXTURE_2D);
 	glEnableClientState(GL_COLOR_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);	
-
 }
 	
 
@@ -127,6 +126,7 @@
   }
   
 	//play you be a winner animation ... yay...
+	
 	
 	
   _hasLanded = YES; 

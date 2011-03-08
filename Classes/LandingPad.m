@@ -8,6 +8,7 @@
 
 #import "LandingPad.h"
 #import "chipmunk.h"
+#import "drawSpace.h"
 
 @interface LandingPad(Private)
 
@@ -30,7 +31,6 @@
 	
   glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
 	glLineWidth(3.0);
-	
 	ccDrawLine(a,b);	
 }
 
