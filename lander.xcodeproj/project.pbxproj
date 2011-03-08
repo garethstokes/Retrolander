@@ -324,7 +324,6 @@
 		E7F7E66A1314FA0C00FE900D /* world_6 in Resources */ = {isa = PBXBuildFile; fileRef = E7F7E5F31314FA0C00FE900D /* world_6 */; };
 		E7F7E66B1314FA0C00FE900D /* world_7 in Resources */ = {isa = PBXBuildFile; fileRef = E7F7E6191314FA0C00FE900D /* world_7 */; };
 		E7F7E66C1314FA0C00FE900D /* world_8 in Resources */ = {isa = PBXBuildFile; fileRef = E7F7E63F1314FA0C00FE900D /* world_8 */; };
-		E7F7E7C61315206600FE900D /* EntrySceneButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F7E7C51315206600FE900D /* EntrySceneButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -672,8 +671,6 @@
 		E7F7E5F31314FA0C00FE900D /* world_6 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = world_6; sourceTree = "<group>"; };
 		E7F7E6191314FA0C00FE900D /* world_7 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = world_7; sourceTree = "<group>"; };
 		E7F7E63F1314FA0C00FE900D /* world_8 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = world_8; sourceTree = "<group>"; };
-		E7F7E7C41315206600FE900D /* EntrySceneButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySceneButton.h; sourceTree = "<group>"; };
-		E7F7E7C51315206600FE900D /* EntrySceneButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySceneButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -783,8 +780,6 @@
 				E700E4AB12D9EABB00B3A621 /* SpaceBackground.h */,
 				E700E4AC12D9EABB00B3A621 /* SpaceBackground.m */,
 				E714C4B2130FA70A00FF7EF3 /* Common.h */,
-				E7F7E7C41315206600FE900D /* EntrySceneButton.h */,
-				E7F7E7C51315206600FE900D /* EntrySceneButton.m */,
 				AB9264CC1314FE81000167BE /* Level.h */,
 				AB9264CD1314FE81000167BE /* Level.m */,
 				E75EFE95131FAF3A00AB239F /* World.h */,
@@ -1512,7 +1507,6 @@
 				E7CCF77012C74B58001CE7C4 /* GameLayer.m in Sources */,
 				E7CCF7C812C75FC8001CE7C4 /* LandingPad.m in Sources */,
 				E700E4AD12D9EABB00B3A621 /* SpaceBackground.m in Sources */,
-				E7F7E7C61315206600FE900D /* EntrySceneButton.m in Sources */,
 				AB9264CE1314FE81000167BE /* Level.m in Sources */,
 				E75EFE97131FAF3A00AB239F /* World.m in Sources */,
 				E700582A1326523C00307B87 /* LanderImageButton.m in Sources */,

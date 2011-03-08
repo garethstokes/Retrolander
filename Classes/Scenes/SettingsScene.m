@@ -7,21 +7,30 @@
 //
 
 #import "SettingsScene.h"
-#import "EntrySceneButton.h"
+#import "EntryScene.h"
 
 @implementation SettingsScene
 
 + (id) scene
 {
   SettingsScene *scene = [SettingsScene node];
-  CGSize size = [[CCDirector sharedDirector] winSize];
+
+  CCLabelTTF *mainLabel = [CCLabelTTF labelWithString:@"back to main menu" fontName:@"Helvetica" fontSize:32];
+  CCMenuItem *mainMenuItem = [CCMenuItemLabel 
+                                   itemWithLabel:mainLabel 
+                                   target:self 
+                                   selector:@selector(mainMenu:)];
   
-  EntrySceneButton *entry_button = [[EntrySceneButton alloc] init];
-  [entry_button setPosition:ccp(size.width /2, size.height /2)];
+  [mainMenuItem setPosition:ccp(0, 0)];
   
-  [scene addChild:entry_button];
+  CCMenu *menu = [CCMenu menuWithItems:mainMenuItem, nil];
+  [menu setPosition:CGPointMake(240, 180)];
   
+  [scene addChild: menu];
   return scene;
 }
 
++ (void)mainMenu:(id)sender {
+  [[CCDirector sharedDirector] replaceScene:[EntryScene scene]];
+}
 @end

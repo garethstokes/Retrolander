@@ -2,7 +2,6 @@
 #import "CCTouchDispatcher.h"
 #import "GameScene.h"
 #import "GameLayer.h"
-#import "EntrySceneButton.h"
 
 @implementation GameHud
 
@@ -21,9 +20,9 @@
   [restart setPosition:ccp(size.width - 30, 15)];
   [self addChild:restart];
   
-  EntrySceneButton *end = [[EntrySceneButton alloc] initForHud];
-  [end setPosition:ccp(size.width - 100, 15)];
-  [self addChild:end];
+//  CCMenuItem *end = [[EntrySceneButton alloc] initForHud];
+//  [end setPosition:ccp(size.width - 100, 15)];
+//  [self addChild:end];
   
   _fuel = [[FuelGauge alloc] initWithMax:MAX_FUEL];
   [self addChild:_fuel];
