@@ -194,8 +194,13 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 				cpShape *playerShape = _player.shape;
 				cpBody *body = playerShape->body;
 				cpVect player_velocity = body->v;
-				
-				if (player_velocity.x > 55 || player_velocity.y > 55) 
+	
+        NSLog(@"player_velocity: (%f, %f)", player_velocity.x * -1, player_velocity.y * -1);
+        
+				if (player_velocity.x > 9.0f 
+            || player_velocity.y > 9.0f
+            || player_velocity.x < -9.0f
+            || player_velocity.y < -9.0f) 
 				{
 					[_player setHasCrashed:YES];
 					
@@ -226,8 +231,13 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 
 -(void) step: (ccTime) delta
 {
-  if ([_player hasCrashed]) return;
-	int steps = 5;
+  if ([_player hasCrashed]) 
+  {
+    [_player explode];
+    return;
+	}
+  
+  int steps = 5;
 	CGFloat dt = delta/(CGFloat)steps;
   
   float distance = ccpDistance([_player position], [_landingPad position]) - 16;
@@ -244,10 +254,8 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 		cpSpaceStep(_worldSpace, dt);
 	}
     
+  [self CheckForCrash];
   [_player step:delta];
-  
-	[self CheckForCrash];
-  
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {

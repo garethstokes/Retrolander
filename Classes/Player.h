@@ -41,7 +41,7 @@
 
 - (void) disableThrusting;
 - (void) setAngle:(cpFloat)value;
-- (void) land;
+- (void) explode;
 - (id) initWith:(cpSpace *)worldSpace andParent:(CCLayer *)parent;
 - (cpVect) position;
 - (cpFloat) angle;

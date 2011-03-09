@@ -28,7 +28,6 @@
 		506EDBA5102F4C9F00A389B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506EDBA4102F4C9F00A389B3 /* AVFoundation.framework */; };
 		506EE1A91030508200A389B3 /* libcocos2d libraries.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 506EE05E10304ED200A389B3 /* libcocos2d libraries.a */; };
 		507022A4107672FA00393637 /* landerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 507022A2107672FA00393637 /* landerAppDelegate.m */; };
-		507023151076758E00393637 /* grossini_dance_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 507023141076758E00393637 /* grossini_dance_atlas.png */; };
 		507ED67E11C63903002ED3FC /* CDAudioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 507ED67511C63903002ED3FC /* CDAudioManager.h */; };
 		507ED67F11C63903002ED3FC /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ED67611C63903002ED3FC /* CDAudioManager.m */; };
 		507ED68011C63903002ED3FC /* CDConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 507ED67711C63903002ED3FC /* CDConfig.h */; };
@@ -926,7 +925,6 @@
 				ABD76D4313278DE800BA6B7B /* ScoreCardBackground.png */,
 				E7E17296132797F90088B7DA /* exhaust.plist */,
 				E7E17241132792060088B7DA /* explosion.plist */,
-				E77C69CE13277A18008AF867 /* flame.plist */,
 				E7F7E5351314FA0C00FE900D /* world_1 */,
 				E7F7E55B1314FA0C00FE900D /* world_2 */,
 				E7F7E5811314FA0C00FE900D /* world_3 */,
