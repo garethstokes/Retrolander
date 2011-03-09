@@ -312,7 +312,6 @@
 		E700E4AF12D9EB9300B3A621 /* Space.plist in Resources */ = {isa = PBXBuildFile; fileRef = E700E4AE12D9EB9300B3A621 /* Space.plist */; };
 		E700E52B12D9F20B00B3A621 /* Galaxy.plist in Resources */ = {isa = PBXBuildFile; fileRef = E700E52A12D9F20B00B3A621 /* Galaxy.plist */; };
 		E75EFE97131FAF3A00AB239F /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFE96131FAF3A00AB239F /* World.m */; };
-		E7CCF0F412C0A42D001CE7C4 /* drawSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF0F312C0A42D001CE7C4 /* drawSpace.c */; };
 		E7CCF37E12C5EEA1001CE7C4 /* GameHud.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF37D12C5EEA1001CE7C4 /* GameHud.m */; };
 		E7CCF73012C7453B001CE7C4 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF72F12C7453B001CE7C4 /* Player.m */; };
 		E7CCF77012C74B58001CE7C4 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF76F12C74B58001CE7C4 /* GameLayer.m */; };
@@ -657,8 +656,6 @@
 		E714C4B2130FA70A00FF7EF3 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		E75EFE95131FAF3A00AB239F /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		E75EFE96131FAF3A00AB239F /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
-		E7CCF0F212C0A42D001CE7C4 /* drawSpace.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.h; sourceTree = "<group>"; };
-		E7CCF0F312C0A42D001CE7C4 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.c; sourceTree = "<group>"; };
 		E7CCF37C12C5EEA1001CE7C4 /* GameHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHud.h; sourceTree = "<group>"; };
 		E7CCF37D12C5EEA1001CE7C4 /* GameHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHud.m; sourceTree = "<group>"; };
 		E7CCF72E12C7453B001CE7C4 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -765,9 +762,8 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				ABD76BF713276C8500BA6B7B /* Level */,
 				E70058BD13265D6B00307B87 /* Scenes */,
-				E7CCF0F212C0A42D001CE7C4 /* drawSpace.h */,
-				E7CCF0F312C0A42D001CE7C4 /* drawSpace.c */,
 				E7CCF37C12C5EEA1001CE7C4 /* GameHud.h */,
 				E7CCF37D12C5EEA1001CE7C4 /* GameHud.m */,
 				E0F81035120A173C005866B8 /* GameConfig.h */,
@@ -936,6 +932,13 @@
 				50F4144710692EE7002A0D5E /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		ABD76BF713276C8500BA6B7B /* Level */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Level;
 			sourceTree = "<group>";
 		};
 		E02BBB19126CC2F5006E46A2 /* cocos2d */ = {
@@ -1508,7 +1511,6 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				507022A4107672FA00393637 /* landerAppDelegate.m in Sources */,
 				E0F81038120A173C005866B8 /* RootViewController.m in Sources */,
-				E7CCF0F412C0A42D001CE7C4 /* drawSpace.c in Sources */,
 				E7CCF37E12C5EEA1001CE7C4 /* GameHud.m in Sources */,
 				E7CCF73012C7453B001CE7C4 /* Player.m in Sources */,
 				E7CCF77012C74B58001CE7C4 /* GameLayer.m in Sources */,

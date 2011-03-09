@@ -29,10 +29,11 @@
     [self addChild: _label];
 
     [self createPhysics];		
+
     [self addPlayerAndLandingPad];		
     
-    
     [self schedule: @selector(step:)];
+		
     [[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 30)]; 
   }
   return self;
@@ -41,16 +42,11 @@
 static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 {
   id <GameObject> obj = shape->data;
-	
-	[obj draw:shape ];
+	[obj draw:shape];
 }	
 
 - (void) draw
 {
-	//[_player draw:_worldSpace];
-	
-	//[_landingPad draw:_worldSpace];
-	
 	//loop through the static objects and draw
 	cpSpaceHashEach(_worldSpace->activeShapes, (cpSpaceHashIterator)drawStaticObject, self);
 	cpSpaceHashEach(_worldSpace->staticShapes, (cpSpaceHashIterator)drawStaticObject, self);
@@ -239,6 +235,11 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
   
   float angle = accelY * 4;
   [_player setAngle:angle - (angle * 2)];
+}
+
+- (void) pause
+{
+  [self unschedule: @selector(step:)];	
 }
 
 @end

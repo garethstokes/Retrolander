@@ -8,21 +8,11 @@
 
 #import "Player.h"
 #import "chipmunk.h"
-#import "drawSpace.h"
 #import "Common.h"
 
 @interface Player(Private)
 - (void) setupPysicsWith:(cpSpace*)space;
 @end
-
-drawSpaceOptions _options = {
-	0,//Draw Hash
-	0,//Draw BBoxes
-	1,//Draw Shapes
-	4.0f,//Collision Point Size
-	0.0f,//Body Point Size
-	1.5f//Line Thickness
-};
 
 @implementation Player
 @synthesize hasCrashed=_hasCrashed;
@@ -117,6 +107,7 @@ drawSpaceOptions _options = {
 	glEnable(GL_TEXTURE_2D);
 	glEnableClientState(GL_COLOR_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);	
+
 }
 	
 
@@ -136,7 +127,6 @@ drawSpaceOptions _options = {
   }
   
 	//play you be a winner animation ... yay...
-	
 	
 	
   _hasLanded = YES; 

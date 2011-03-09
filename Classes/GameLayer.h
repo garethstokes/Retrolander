@@ -25,4 +25,6 @@
 - (void) createPhysics;
 - (void) loadStaticObjects:(NSDictionary *)dictObjects;
 - (void) addPlayerAndLandingPad;
+- (void) pause;
+
 @end
