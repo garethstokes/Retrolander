@@ -10,6 +10,8 @@
 #import "CCTouchDispatcher.h"
 #import "chipmunk.h"
 #import "StaticObject.h"
+#import "GameScene.h"
+#import "ScoreCard.h"
 
 @implementation GameLayer
 @synthesize player=_player;
@@ -171,6 +173,57 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 30)];
 }
 
+- (void) CheckForCrash
+{
+	cpArray *arbiters = _worldSpace->arbiters;
+	
+	for(int i=0; i<arbiters->num; i++){
+    
+		cpArbiter *arb = (cpArbiter*)arbiters->arr[i];
+		
+		for(int i=0; i<arb->numContacts; i++){
+			CP_ARBITER_GET_SHAPES(arb, a, b);
+			if((a != [_landingPad shape]) && (b != [_landingPad shape]))
+			{
+				[_player setHasCrashed:YES];
+			}
+      
+      if ((a == [_player shape]) && (b == [_landingPad shape])) 
+      {
+        //[_player land];
+				cpShape *playerShape = _player.shape;
+				cpBody *body = playerShape->body;
+				cpVect player_velocity = body->v;
+				
+				if (player_velocity.x > 55 || player_velocity.y > 55) 
+				{
+					[_player setHasCrashed:YES];
+					
+					//create explosion and add spinning parts :(
+					
+					return;
+				}
+				
+				//play you be a winner animation ... yay...
+				[self pause];
+				
+				//Show level score
+				
+				Game *g = (Game *)[[CCDirector sharedDirector] runningScene];
+				
+				int thisWorldID = g.worldID;
+				int thislevelID = g.levelID;
+				
+				[[CCDirector sharedDirector] replaceScene:[ScoreCard scene:thisWorldID levelID:thislevelID fuelLevel:_player.fuel timeLeft:30]];
+								
+			  [_player setHasLanded:YES ];
+				
+				break;
+      }
+		}
+	} 
+}
+
 -(void) step: (ccTime) delta
 {
   if ([_player hasCrashed]) return;
@@ -193,25 +246,8 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
     
   [_player step:delta];
   
-  cpArray *arbiters = _worldSpace->arbiters;
-	
-	for(int i=0; i<arbiters->num; i++){
-    
-		cpArbiter *arb = (cpArbiter*)arbiters->arr[i];
-		
-		for(int i=0; i<arb->numContacts; i++){
-			CP_ARBITER_GET_SHAPES(arb, a, b);
-			if((a != [_landingPad shape]) && (b != [_landingPad shape]))
-			{
-				[_player setHasCrashed:YES];
-			}
-      
-      if ((a == [_player shape]) && (b == [_landingPad shape])) 
-      {
-        [_player land];
-      }
-		}
-	} 
+	[self CheckForCrash];
+  
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {

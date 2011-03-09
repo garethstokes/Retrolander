@@ -26,5 +26,6 @@
 - (void) loadStaticObjects:(NSDictionary *)dictObjects;
 - (void) addPlayerAndLandingPad;
 - (void) pause;
+- (void) CheckForCrash;
 
 @end

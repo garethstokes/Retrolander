@@ -28,7 +28,6 @@
 		506EDBA5102F4C9F00A389B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506EDBA4102F4C9F00A389B3 /* AVFoundation.framework */; };
 		506EE1A91030508200A389B3 /* libcocos2d libraries.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 506EE05E10304ED200A389B3 /* libcocos2d libraries.a */; };
 		507022A4107672FA00393637 /* landerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 507022A2107672FA00393637 /* landerAppDelegate.m */; };
-		507023151076758E00393637 /* grossini_dance_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 507023141076758E00393637 /* grossini_dance_atlas.png */; };
 		507ED67E11C63903002ED3FC /* CDAudioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 507ED67511C63903002ED3FC /* CDAudioManager.h */; };
 		507ED67F11C63903002ED3FC /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ED67611C63903002ED3FC /* CDAudioManager.m */; };
 		507ED68011C63903002ED3FC /* CDConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 507ED67711C63903002ED3FC /* CDConfig.h */; };
@@ -67,6 +66,9 @@
 		50F4144B10692EE7002A0D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F4144610692EE7002A0D5E /* Icon.png */; };
 		AB6E411A13251D3E00136109 /* StaticObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6E411913251D3E00136109 /* StaticObject.m */; };
 		AB9264CE1314FE81000167BE /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9264CD1314FE81000167BE /* Level.m */; };
+		ABA773D21327C03A00FDFE5F /* btnNextLevel.png in Resources */ = {isa = PBXBuildFile; fileRef = ABA773BC1327BF2300FDFE5F /* btnNextLevel.png */; };
+		ABD76C8813277F3300BA6B7B /* ScoreCard.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD76C8713277F3300BA6B7B /* ScoreCard.m */; };
+		ABD76D4413278DE800BA6B7B /* ScoreCardBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD76D4313278DE800BA6B7B /* ScoreCardBackground.png */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -356,7 +358,6 @@
 		506EDBA4102F4C9F00A389B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		506EE05E10304ED200A389B3 /* libcocos2d libraries.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocos2d libraries.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		507022A2107672FA00393637 /* landerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = landerAppDelegate.m; sourceTree = "<group>"; };
-		507023141076758E00393637 /* grossini_dance_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grossini_dance_atlas.png; sourceTree = "<group>"; };
 		507ED67511C63903002ED3FC /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
 		507ED67611C63903002ED3FC /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
 		507ED67711C63903002ED3FC /* CDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDConfig.h; sourceTree = "<group>"; };
@@ -399,6 +400,10 @@
 		AB6E411913251D3E00136109 /* StaticObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticObject.m; sourceTree = "<group>"; };
 		AB9264CC1314FE81000167BE /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		AB9264CD1314FE81000167BE /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		ABA773BC1327BF2300FDFE5F /* btnNextLevel.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = btnNextLevel.png; sourceTree = "<group>"; };
+		ABD76C8613277F3300BA6B7B /* ScoreCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCard.h; sourceTree = "<group>"; };
+		ABD76C8713277F3300BA6B7B /* ScoreCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCard.m; sourceTree = "<group>"; };
+		ABD76D4313278DE800BA6B7B /* ScoreCardBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScoreCardBackground.png; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -911,6 +916,8 @@
 			isa = PBXGroup;
 			children = (
 				E77C69CE13277A18008AF867 /* flame.plist */,
+				ABA773BC1327BF2300FDFE5F /* btnNextLevel.png */,
+				ABD76D4313278DE800BA6B7B /* ScoreCardBackground.png */,
 				E7F7E5351314FA0C00FE900D /* world_1 */,
 				E7F7E55B1314FA0C00FE900D /* world_2 */,
 				E7F7E5811314FA0C00FE900D /* world_3 */,
@@ -927,7 +934,6 @@
 				E02BB51D126CA588006E46A2 /* Icon-Small.png */,
 				E02BB51E126CA588006E46A2 /* Icon-Small-50.png */,
 				E02BB51F126CA588006E46A2 /* Icon-72.png */,
-				507023141076758E00393637 /* grossini_dance_atlas.png */,
 				50F4144410692EE7002A0D5E /* Default.png */,
 				50F4144510692EE7002A0D5E /* fps_images.png */,
 				50F4144610692EE7002A0D5E /* Icon.png */,
@@ -939,6 +945,8 @@
 		ABD76BF713276C8500BA6B7B /* Level */ = {
 			isa = PBXGroup;
 			children = (
+				ABD76C8613277F3300BA6B7B /* ScoreCard.h */,
+				ABD76C8713277F3300BA6B7B /* ScoreCard.m */,
 			);
 			name = Level;
 			sourceTree = "<group>";
@@ -1483,7 +1491,6 @@
 				50F4144910692EE7002A0D5E /* Default.png in Resources */,
 				50F4144A10692EE7002A0D5E /* fps_images.png in Resources */,
 				50F4144B10692EE7002A0D5E /* Icon.png in Resources */,
-				507023151076758E00393637 /* grossini_dance_atlas.png in Resources */,
 				E02BB521126CA588006E46A2 /* Icon@2x.png in Resources */,
 				E02BB522126CA588006E46A2 /* Icon-Small@2x.png in Resources */,
 				E02BB523126CA588006E46A2 /* Icon-Small.png in Resources */,
@@ -1500,6 +1507,8 @@
 				E7F7E66A1314FA0C00FE900D /* world_6 in Resources */,
 				E7F7E66B1314FA0C00FE900D /* world_7 in Resources */,
 				E7F7E66C1314FA0C00FE900D /* world_8 in Resources */,
+				ABD76D4413278DE800BA6B7B /* ScoreCardBackground.png in Resources */,
+				ABA773D21327C03A00FDFE5F /* btnNextLevel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1527,6 +1536,7 @@
 				E70058CB13265D6B00307B87 /* GameScene.m in Sources */,
 				E70058CC13265D6B00307B87 /* SettingsScene.m in Sources */,
 				AB6E411A13251D3E00136109 /* StaticObject.m in Sources */,
+				ABD76C8813277F3300BA6B7B /* ScoreCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

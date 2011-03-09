@@ -7,7 +7,7 @@
 //
 
 #import "LandingPad.h"
-#import "chipmunk.h"
+#import "chipmunk.h".
 
 @interface LandingPad(Private)
 

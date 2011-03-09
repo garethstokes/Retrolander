@@ -122,24 +122,7 @@
 
 - (void) land
 {
-  cpShape *playerShape = _shape;
-  cpBody *body = playerShape->body;
-  cpVect player_velocity = body->v;
   
-  if (player_velocity.x > 55 || player_velocity.y > 55) 
-  {
-    _hasCrashed = YES;
-		
-		//create explosion and add spinning parts :(
-		
-    return;
-  }
-  
-	//play you be a winner animation ... yay...
-	
-	
-	
-  _hasLanded = YES; 
 }
 
 - (void) setupPysicsWith:(cpSpace*)space
