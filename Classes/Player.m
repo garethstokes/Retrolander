@@ -43,7 +43,7 @@
   _flameParticles = [CCParticleSystemQuad particleWithFile:@"flame.plist"];
   [_flameParticles setPosition:CGPointMake([self position].x, [self position].y - 15)];
   [_flameParticles setScale:.4];
-  [parent addChild:_flameParticles];
+  [parent addChild:_flameParticles z:-1];
   
   return self;
 }
@@ -73,9 +73,9 @@
     _fuel -= delta;
   }
   
-  cpFloat angle = [self angle] - 90;
-  [_flameParticles setAngle:angle];
-  cpVect offset = cpvrotate(cpvforangle(angle + 90), ccp(0, -15));
+  cpFloat angle = [self angle];
+  [_flameParticles setAngle:angle - 90];
+  cpVect offset = cpvrotate(cpvforangle(angle), ccp(1, -16));
   [_flameParticles setPosition:cpvadd([self position], offset)];
 }
 
@@ -97,20 +97,23 @@
 	glDrawArrays(GL_TRIANGLE_FAN, 0, poly->numVerts);
 
 	//draw the flame
-	glPushMatrix();
+	//glPushMatrix();
+//  
+//	if (_isThrusting && _fuel > 0)	{
+//		glColor4f(0.93359375f, 1.0f, 0.234375f, 1.0f);
+//		poly = (cpPolyShape *)_booster;
+//	}else {
+//		glColor4f(0.93359375f, 0.7109375f, 0.234375f, 1.0f);
+//		poly = (cpPolyShape *)_flame;
+//	}
+//
+//  glVertexPointer(2, GL_FLOAT, 0, poly->tVerts);
+//	glDrawArrays(GL_TRIANGLE_FAN, 0, poly->numVerts);
+//	
+//	glPopMatrix();
   
-	if (_isThrusting && _fuel > 0)	{
-		glColor4f(0.93359375f, 1.0f, 0.234375f, 1.0f);
-		poly = (cpPolyShape *)_booster;
-	}else {
-		glColor4f(0.93359375f, 0.7109375f, 0.234375f, 1.0f);
-		poly = (cpPolyShape *)_flame;
-	}
-
-  glVertexPointer(2, GL_FLOAT, 0, poly->tVerts);
-	glDrawArrays(GL_TRIANGLE_FAN, 0, poly->numVerts);
-	
-	glPopMatrix();
+  _flameParticles.scale = (_isThrusting && _fuel > 0) ? .4 : .25;
+  if (_hasCrashed || _hasLanded) _flameParticles.scale = 0.05;
 	
 	// restore default GL state
 	glEnable(GL_TEXTURE_2D);

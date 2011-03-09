@@ -32,7 +32,7 @@
   [scene setGame: scene.level.gameLayer];
 
   [scene addChild:scene.hud z:100];
-  [scene addChild:scene.level.gameLayer z:1];
+  [scene addChild:scene.level.gameLayer z:5];
   [scene addChild:scene.level.background z:0];
 
   return scene;
