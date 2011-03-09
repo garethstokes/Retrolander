@@ -40,10 +40,17 @@
   
   [self setupPysicsWith:worldSpace];
   
+  _parent = parent;
+  
   _flameParticles = [CCParticleSystemQuad particleWithFile:@"flame.plist"];
   [_flameParticles setPosition:CGPointMake([self position].x, [self position].y - 15)];
   [_flameParticles setScale:.4];
-  [parent addChild:_flameParticles z:-1];
+  [_parent addChild:_flameParticles z:-1];
+  
+  _exhaust = [CCParticleSystemQuad particleWithFile:@"exhaust.plist"];
+  [_exhaust setPosition:CGPointMake([self position].x, [self position].y - 15)];
+  [_exhaust setScale:.3];
+  [_parent addChild:_exhaust ];
   
   return self;
 }
@@ -77,6 +84,7 @@
   [_flameParticles setAngle:angle - 90];
   cpVect offset = cpvrotate(cpvforangle(angle), ccp(1, -15));
   [_flameParticles setPosition:cpvadd([self position], offset)];
+  [_exhaust setPosition:cpvadd([self position], offset)];
 }
 
 - (void) draw:(cpShape *) shape;
@@ -110,8 +118,29 @@
 //	
 //	glPopMatrix();
   
-  _flameParticles.scale = (_isThrusting && _fuel > 0) ? .4 : .25;
-  if (_hasCrashed || _hasLanded) _flameParticles.scale = 0.05;
+  if (_isThrusting && _fuel > 0) 
+  {
+    _flameParticles.scale = .4;
+    _exhaust.scale = .6;
+  }
+  else 
+  {
+    _flameParticles.scale = .25;
+    _exhaust.scale = .3;
+  }
+
+  if (_hasCrashed || _hasLanded) 
+  {
+    _flameParticles.scale = 0.05;
+    _exhaust.scale = 0;
+  }
+  
+  if (_hasCrashed && _explosion == nil) {
+    _explosion = [CCParticleSystemQuad particleWithFile:@"explosion.plist"];
+    [_explosion setPosition:[self position]];
+    //[explosion setScale:.4];
+    [_parent addChild:_explosion];
+  }
 	
 	// restore default GL state
 	glEnable(GL_TEXTURE_2D);
@@ -123,6 +152,20 @@
 - (void) land
 {
   
+  if (player_velocity.x > 30 || player_velocity.y > 30) 
+  {
+    _hasCrashed = YES;
+		
+		//create explosion and add spinning parts :(
+
+    return;
+  }
+  
+	//play you be a winner animation ... yay...
+	
+	
+	
+  _hasLanded = YES; 
 }
 
 - (void) setupPysicsWith:(cpSpace*)space

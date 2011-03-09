@@ -24,6 +24,9 @@
   int _lives;
   
   CCParticleSystemQuad *_flameParticles;
+  CCParticleSystemQuad *_exhaust;
+  CCParticleSystemQuad *_explosion;
+  CCLayer *_parent;
 }
 
 @property (nonatomic) BOOL hasCrashed;
