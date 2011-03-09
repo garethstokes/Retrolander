@@ -26,7 +26,7 @@
 @synthesize velocityLimit=_velocityLimit;
 @synthesize lives=_lives;
 
-- (id) initWith:(cpSpace*)worldSpace
+- (id) initWith:(cpSpace*)worldSpace andParent:(CCLayer *)parent
 {
   if(!(self = [super init])) return nil;
   
@@ -39,6 +39,12 @@
   _lives = PLAYER_LIVES;
   
   [self setupPysicsWith:worldSpace];
+  
+  _flameParticles = [CCParticleSystemQuad particleWithFile:@"flame.plist"];
+  [_flameParticles setPosition:CGPointMake([self position].x, [self position].y - 15)];
+  [_flameParticles setScale:.4];
+  [parent addChild:_flameParticles];
+  
   return self;
 }
 
@@ -64,13 +70,13 @@
     force = cpvmult(cpvperp(force), 1);    
     cpBodyApplyImpulse(body, force, cpvzero);
     
-    //if (abs(body->v.x) <= _velocityLimit 
-//        && abs(body->v.y) <= _velocityLimit) 
-//    {
-      //body;
-      _fuel -= delta;
-    //}
+    _fuel -= delta;
   }
+  
+  cpFloat angle = [self angle] - 90;
+  [_flameParticles setAngle:angle];
+  cpVect offset = cpvrotate(cpvforangle(angle + 90), ccp(0, -15));
+  [_flameParticles setPosition:cpvadd([self position], offset)];
 }
 
 
@@ -191,6 +197,12 @@
 {
   cpBody *body = _shape->body;
   return body->p;
+}
+                             
+- (cpFloat) angle
+{
+  cpBody *body = _shape->body;
+  return body->a;
 }
 
 @end

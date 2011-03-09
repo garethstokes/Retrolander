@@ -8,7 +8,6 @@
 
 #import "LandingPad.h"
 #import "chipmunk.h"
-#import "drawSpace.h"
 
 @interface LandingPad(Private)
 

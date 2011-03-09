@@ -12,7 +12,7 @@
 #import "Common.h"
 #import "GameProtocols.h"
 
-@interface Player : NSObject <GameObject> {
+@interface Player : CCLayer<GameObject> {
   BOOL _hasCrashed;
   BOOL _hasLanded;
   BOOL _isThrusting;  
@@ -22,6 +22,8 @@
   int _fuel;
   int _velocityLimit;
   int _lives;
+  
+  CCParticleSystemQuad *_flameParticles;
 }
 
 @property (nonatomic) BOOL hasCrashed;
@@ -37,7 +39,8 @@
 - (void) disableThrusting;
 - (void) setAngle:(cpFloat)value;
 - (void) land;
-- (id) initWith:(cpSpace *)worldSpace;
+- (id) initWith:(cpSpace *)worldSpace andParent:(CCLayer *)parent;
 - (cpVect) position;
+- (cpFloat) angle;
 
 @end

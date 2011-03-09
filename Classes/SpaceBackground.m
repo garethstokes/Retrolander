@@ -17,6 +17,7 @@
   
   _particleSystem = [CCParticleSystemQuad particleWithFile:@"Space.plist"];
   [self addChild:_particleSystem];
+  
   return self;
 }
 

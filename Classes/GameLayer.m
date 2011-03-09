@@ -42,13 +42,6 @@
 static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 {
   id <GameObject> obj = shape->data;
-	
-	[obj draw:shape ];
-}	
-
-static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
-{
-  id <GameObject> obj = shape->data;
 	[obj draw:shape];
 }	
 
@@ -163,7 +156,7 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 
 - (void) addPlayerAndLandingPad
 {
-  _player = [[Player alloc] initWith:_worldSpace];
+  _player = [[Player alloc] initWith:_worldSpace andParent:self];
   _landingPad = [[LandingPad alloc] initAgainst:_worldSpace];
 }
 
