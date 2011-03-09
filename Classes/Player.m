@@ -75,11 +75,9 @@
   
   cpFloat angle = [self angle];
   [_flameParticles setAngle:angle - 90];
-  cpVect offset = cpvrotate(cpvforangle(angle), ccp(1, -16));
+  cpVect offset = cpvrotate(cpvforangle(angle), ccp(1, -15));
   [_flameParticles setPosition:cpvadd([self position], offset)];
 }
-
-
 
 - (void) draw:(cpShape *) shape;
 {
