@@ -15,6 +15,7 @@
 @end
 
 @implementation Player
+
 @synthesize hasCrashed=_hasCrashed;
 @synthesize hasLanded=_hasLanded;
 @synthesize isThrusting=_isThrusting;
@@ -23,6 +24,7 @@
 @synthesize booster=_booster;
 @synthesize fuel=_fuel;
 @synthesize velocityLimit=_velocityLimit;
+@synthesize lives=_lives;
 
 - (id) initWith:(cpSpace*)worldSpace
 {
@@ -34,6 +36,7 @@
   
   _fuel = MAX_FUEL;
   _velocityLimit = 100;
+  _lives = PLAYER_LIVES;
   
   [self setupPysicsWith:worldSpace];
   return self;

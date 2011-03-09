@@ -21,6 +21,7 @@
   
   int _fuel;
   int _velocityLimit;
+  int _lives;
 }
 
 @property (nonatomic) BOOL hasCrashed;
@@ -31,6 +32,7 @@
 @property (nonatomic) cpShape *booster;
 @property (nonatomic) int fuel;
 @property (nonatomic) int velocityLimit;
+@property (nonatomic) int lives;
 
 - (void) disableThrusting;
 - (void) setAngle:(cpFloat)value;

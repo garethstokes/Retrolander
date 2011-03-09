@@ -12,6 +12,7 @@
 static const int MAX_FUEL = 200;
 static const int MAX_WORLDS = 8;
 static const int MAX_LEVELS = 12;
+static const int PLAYER_LIVES = 3;
 
 enum {
   MapWidth = 480 * 4, 

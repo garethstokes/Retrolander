@@ -24,6 +24,7 @@
 {
   FuelGauge *_fuel;
   CCLabelTTF *_levelInfo;
+  CCLabelTTF *_livesInfo;
 }
 
 @end
