@@ -49,10 +49,6 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 
 - (void) draw
 {
-	//[_player draw:_worldSpace];
-	
-	//[_landingPad draw:_worldSpace];
-	
 	//loop through the static objects and draw
 	cpSpaceHashEach(_worldSpace->activeShapes, (cpSpaceHashIterator)drawStaticObject, self);
 	cpSpaceHashEach(_worldSpace->staticShapes, (cpSpaceHashIterator)drawStaticObject, self);
@@ -177,6 +173,8 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 {
 	cpArray *arbiters = _worldSpace->arbiters;
 	
+	int LandingPadContactCount = 0;
+	
 	for(int i=0; i<arbiters->num; i++){
     
 		cpArbiter *arb = (cpArbiter*)arbiters->arr[i];
@@ -209,21 +207,24 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 					return;
 				}
 				
-				//play you be a winner animation ... yay...
-				[self pause];
+				if(++LandingPadContactCount == 2){
+					
+					//play you be a winner animation ... yay...
+					[self pause];
 				
-				//Show level score
+					//Show level score
 				
-				Game *g = (Game *)[[CCDirector sharedDirector] runningScene];
+					Game *g = (Game *)[[CCDirector sharedDirector] runningScene];
 				
-				int thisWorldID = g.worldID;
-				int thislevelID = g.levelID;
+					int thisWorldID = g.worldID;
+					int thislevelID = g.levelID;
 				
-				[[CCDirector sharedDirector] replaceScene:[ScoreCard scene:thisWorldID levelID:thislevelID fuelLevel:_player.fuel timeLeft:30]];
+					[[CCDirector sharedDirector] replaceScene:[ScoreCard scene:thisWorldID levelID:thislevelID fuelLevel:_player.fuel timeLeft:30]];
 								
-			  [_player setHasLanded:YES ];
+					[_player setHasLanded:YES ];
 				
-				break;
+					break;
+				}
       }
 		}
 	} 

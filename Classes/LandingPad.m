@@ -35,7 +35,6 @@
 
 - (cpVect) position
 {
-  //return ccp(310, 230);
   return ccp(30, 230);
 }
 
