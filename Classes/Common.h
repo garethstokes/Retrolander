@@ -14,6 +14,8 @@ static const int MAX_WORLDS = 8;
 static const int MAX_LEVELS = 12;
 static const int PLAYER_LIVES = 3;
 
+static const float FUEL_PER_SECOND = 40.0; //Max fuel / x seconds
+
 enum {
   MapWidth = 480 * 4, 
   MapHeight = 320 * 4

@@ -19,7 +19,7 @@
   cpShape *_shape;
 	cpShape *_flame;
   
-  int _fuel;
+  float _fuel;
   int _velocityLimit;
   int _lives;
   
@@ -35,7 +35,7 @@
 @property (nonatomic) cpShape *shape;
 @property (nonatomic) cpShape *flame;
 @property (nonatomic) cpShape *booster;
-@property (nonatomic) int fuel;
+@property (nonatomic) float fuel;
 @property (nonatomic) int velocityLimit;
 @property (nonatomic) int lives;
 

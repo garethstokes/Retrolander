@@ -77,7 +77,7 @@
     force = cpvmult(cpvperp(force), 1);    
     cpBodyApplyImpulse(body, force, cpvzero);
     
-    _fuel -= delta;
+    _fuel -= FUEL_PER_SECOND * delta;
   }
   
   cpFloat angle = [self angle];
