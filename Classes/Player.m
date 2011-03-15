@@ -48,8 +48,8 @@
   [_parent addChild:_flameParticles z:-2];
   
   _exhaust = [CCParticleSystemQuad particleWithFile:@"exhaust.plist"];
-  [_exhaust setPosition:CGPointMake([self position].x, [self position].y - 15)];
-  [_exhaust setScale:.3];
+  [_exhaust setPosition:CGPointMake([self position].x, [self position].y - 50)];
+  [_exhaust setScale:.2];
   [_parent addChild:_exhaust z:-1];
   
   return self;
@@ -84,7 +84,9 @@
   [_flameParticles setAngle:angle - 90];
   cpVect offset = cpvrotate(cpvforangle(angle), ccp(1, -15));
   [_flameParticles setPosition:cpvadd([self position], offset)];
-  [_exhaust setPosition:cpvadd([self position], offset)];
+    
+    offset = cpvrotate(cpvforangle(angle), ccp(1, -30));
+    [_exhaust setPosition:cpvadd([self position], offset)];
 }
 
 - (void) draw:(cpShape *) shape;
@@ -121,12 +123,10 @@
   if (_isThrusting && _fuel > 0) 
   {
     _flameParticles.scale = .4;
-    _exhaust.scale = .4;
   }
   else 
   {
     _flameParticles.scale = .25;
-    _exhaust.scale = .3;
   }
 
   if (_hasCrashed || _hasLanded) 
