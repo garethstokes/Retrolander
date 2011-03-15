@@ -17,6 +17,7 @@
   
   CCLabelTTF *_label;
   cpSpace *_worldSpace;
+    CGPoint _cameraPosition;
 }
 
 @property (nonatomic, retain) Player *player;
@@ -27,5 +28,6 @@
 - (void) addPlayerAndLandingPad;
 - (void) pause;
 - (void) CheckForCrash;
+- (void) moveCameraTo:(CGPoint)point;
 
 @end

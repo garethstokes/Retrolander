@@ -37,6 +37,10 @@
     [self schedule: @selector(step:)];
 		
     [[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 30)]; 
+      
+      _cameraPosition = [_player position];
+      [self.camera setCenterX:_cameraPosition.x - 240 centerY:_cameraPosition.y - 160 centerZ:0];
+      [self.camera setEyeX:_cameraPosition.x - 240 eyeY:_cameraPosition.y - 160 eyeZ:90];
   }
   return self;
 }
@@ -232,31 +236,40 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 
 -(void) step: (ccTime) delta
 {
-  if ([_player hasCrashed]) 
-  {
-    [_player explode];
-    return;
-	}
-  
-  int steps = 5;
-	CGFloat dt = delta/(CGFloat)steps;
-  
-  float distance = ccpDistance([_player position], [_landingPad position]) - 16;
-  cpVect offset = ccpAngleBetween([_landingPad position], [_player position]);
-  float angle = cpvtoangle(offset);
-  
-  cpVect middle = ccpGetOffset(angle, distance / 2);
-  
-  middle = ccpAdd([_landingPad position], middle);
-  [self.camera setCenterX:middle.x - 240 centerY:middle.y - 160 centerZ:0];
-  [self.camera setEyeX:middle.x - 240 eyeY:middle.y - 160 eyeZ:distance / 3];
-  
-	for(int i=0; i<steps; i++){
-		cpSpaceStep(_worldSpace, dt);
-	}
+    if ([_player hasCrashed]) 
+    {
+        [_player explode];
+        return;
+    }
+
+    int steps = 5;
+    CGFloat dt = delta/(CGFloat)steps;
+
+
+    for(int i=0; i<steps; i++){
+        cpSpaceStep(_worldSpace, dt);
+    }
+
+    [self CheckForCrash];
+    [_player step:delta];
+    [self moveCameraTo:[_player position]];
+}
+
+- (void) moveCameraTo:(CGPoint)point
+{
+    float magnitude = ccpDistance(_cameraPosition, point);
+    NSLog(@"magnitude: %f", magnitude);
     
-  [self CheckForCrash];
-  [_player step:delta];
+    if (magnitude > 100) 
+    {
+        cpVect offset = ccpAngleBetween(_cameraPosition, point);
+        float angle = cpvtoangle(offset);
+        CGPoint delta = ccpGetOffset(angle, magnitude - 100);
+        _cameraPosition = ccpAdd(_cameraPosition, delta);
+     
+        [self.camera setCenterX:_cameraPosition.x - 240 centerY:_cameraPosition.y - 160 centerZ:0];
+        [self.camera setEyeX:_cameraPosition.x - 240 eyeY:_cameraPosition.y - 160 eyeZ:90];
+    }
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
