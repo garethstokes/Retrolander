@@ -315,6 +315,16 @@
 		E700E4AF12D9EB9300B3A621 /* Space.plist in Resources */ = {isa = PBXBuildFile; fileRef = E700E4AE12D9EB9300B3A621 /* Space.plist */; };
 		E700E52B12D9F20B00B3A621 /* Galaxy.plist in Resources */ = {isa = PBXBuildFile; fileRef = E700E52A12D9F20B00B3A621 /* Galaxy.plist */; };
 		E75EFE97131FAF3A00AB239F /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = E75EFE96131FAF3A00AB239F /* World.m */; };
+		E7CAE77E1331C75900786665 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CAE77D1331C75900786665 /* Cocoa.framework */; };
+		E7CAE7881331C75900786665 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7CAE7861331C75900786665 /* InfoPlist.strings */; };
+		E7CAE78B1331C75900786665 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CAE78A1331C75900786665 /* main.m */; };
+		E7CAE78E1331C75900786665 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E7CAE78C1331C75900786665 /* Credits.rtf */; };
+		E7CAE7911331C75900786665 /* WorldEditorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CAE7901331C75900786665 /* WorldEditorAppDelegate.m */; };
+		E7CAE7941331C75900786665 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7CAE7921331C75900786665 /* MainMenu.xib */; };
+		E7CAE79B1331C75900786665 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CAE77D1331C75900786665 /* Cocoa.framework */; };
+		E7CAE7A31331C75900786665 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7CAE7A11331C75900786665 /* InfoPlist.strings */; };
+		E7CAE7A61331C75900786665 /* WorldEditorTests.h in Resources */ = {isa = PBXBuildFile; fileRef = E7CAE7A51331C75900786665 /* WorldEditorTests.h */; };
+		E7CAE7A81331C75900786665 /* WorldEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CAE7A71331C75900786665 /* WorldEditorTests.m */; };
 		E7CCF37E12C5EEA1001CE7C4 /* GameHud.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF37D12C5EEA1001CE7C4 /* GameHud.m */; };
 		E7CCF73012C7453B001CE7C4 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF72F12C7453B001CE7C4 /* Player.m */; };
 		E7CCF77012C74B58001CE7C4 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CCF76F12C74B58001CE7C4 /* GameLayer.m */; };
@@ -338,6 +348,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 506EE05D10304ED200A389B3;
 			remoteInfo = "cocos2d libraries";
+		};
+		E7CAE79C1331C75900786665 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7CAE77A1331C75900786665;
+			remoteInfo = WorldEditor;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -665,6 +682,25 @@
 		E714C4B2130FA70A00FF7EF3 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		E75EFE95131FAF3A00AB239F /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		E75EFE96131FAF3A00AB239F /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
+		E7CAE77B1331C75900786665 /* WorldEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7CAE77D1331C75900786665 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E7CAE7801331C75900786665 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E7CAE7811331C75900786665 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E7CAE7821331C75900786665 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E7CAE7851331C75900786665 /* WorldEditor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WorldEditor-Info.plist"; sourceTree = "<group>"; };
+		E7CAE7871331C75900786665 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E7CAE7891331C75900786665 /* WorldEditor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorldEditor-Prefix.pch"; sourceTree = "<group>"; };
+		E7CAE78A1331C75900786665 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E7CAE78D1331C75900786665 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		E7CAE78F1331C75900786665 /* WorldEditorAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorldEditorAppDelegate.h; sourceTree = "<group>"; };
+		E7CAE7901331C75900786665 /* WorldEditorAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldEditorAppDelegate.m; sourceTree = "<group>"; };
+		E7CAE7931331C75900786665 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E7CAE79A1331C75900786665 /* WorldEditorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldEditorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7CAE7A01331C75900786665 /* WorldEditorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WorldEditorTests-Info.plist"; sourceTree = "<group>"; };
+		E7CAE7A21331C75900786665 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E7CAE7A41331C75900786665 /* WorldEditorTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorldEditorTests-Prefix.pch"; sourceTree = "<group>"; };
+		E7CAE7A51331C75900786665 /* WorldEditorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorldEditorTests.h; sourceTree = "<group>"; };
+		E7CAE7A71331C75900786665 /* WorldEditorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorldEditorTests.m; sourceTree = "<group>"; };
 		E7CCF37C12C5EEA1001CE7C4 /* GameHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHud.h; sourceTree = "<group>"; };
 		E7CCF37D12C5EEA1001CE7C4 /* GameHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHud.m; sourceTree = "<group>"; };
 		E7CCF72E12C7453B001CE7C4 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -717,6 +753,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E7CAE7781331C75900786665 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7CAE77E1331C75900786665 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7CAE7961331C75900786665 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7CAE79B1331C75900786665 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -725,6 +777,8 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* lander.app */,
 				506EE05E10304ED200A389B3 /* libcocos2d libraries.a */,
+				E7CAE77B1331C75900786665 /* WorldEditor.app */,
+				E7CAE79A1331C75900786665 /* WorldEditorTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -739,6 +793,8 @@
 				2D500B1D0D5A766B00DBA0E3 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				50F4144210692EE7002A0D5E /* Resources */,
+				E7CAE7831331C75900786665 /* WorldEditor */,
+				E7CAE79E1331C75900786665 /* WorldEditorTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -766,6 +822,8 @@
 				DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */,
 				506EDB87102F4C4000A389B3 /* libz.dylib */,
 				506EDBA4102F4C9F00A389B3 /* AVFoundation.framework */,
+				E7CAE77D1331C75900786665 /* Cocoa.framework */,
+				E7CAE77F1331C75900786665 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1274,6 +1332,59 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		E7CAE77F1331C75900786665 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7CAE7801331C75900786665 /* AppKit.framework */,
+				E7CAE7811331C75900786665 /* CoreData.framework */,
+				E7CAE7821331C75900786665 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E7CAE7831331C75900786665 /* WorldEditor */ = {
+			isa = PBXGroup;
+			children = (
+				E7CAE78F1331C75900786665 /* WorldEditorAppDelegate.h */,
+				E7CAE7901331C75900786665 /* WorldEditorAppDelegate.m */,
+				E7CAE7921331C75900786665 /* MainMenu.xib */,
+				E7CAE7841331C75900786665 /* Supporting Files */,
+			);
+			path = WorldEditor;
+			sourceTree = "<group>";
+		};
+		E7CAE7841331C75900786665 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E7CAE7851331C75900786665 /* WorldEditor-Info.plist */,
+				E7CAE7861331C75900786665 /* InfoPlist.strings */,
+				E7CAE7891331C75900786665 /* WorldEditor-Prefix.pch */,
+				E7CAE78A1331C75900786665 /* main.m */,
+				E7CAE78C1331C75900786665 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E7CAE79E1331C75900786665 /* WorldEditorTests */ = {
+			isa = PBXGroup;
+			children = (
+				E7CAE7A51331C75900786665 /* WorldEditorTests.h */,
+				E7CAE7A71331C75900786665 /* WorldEditorTests.m */,
+				E7CAE79F1331C75900786665 /* Supporting Files */,
+			);
+			path = WorldEditorTests;
+			sourceTree = "<group>";
+		};
+		E7CAE79F1331C75900786665 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E7CAE7A01331C75900786665 /* WorldEditorTests-Info.plist */,
+				E7CAE7A11331C75900786665 /* InfoPlist.strings */,
+				E7CAE7A41331C75900786665 /* WorldEditorTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1462,6 +1573,42 @@
 			productReference = 506EE05E10304ED200A389B3 /* libcocos2d libraries.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		E7CAE77A1331C75900786665 /* WorldEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7CAE7AD1331C75A00786665 /* Build configuration list for PBXNativeTarget "WorldEditor" */;
+			buildPhases = (
+				E7CAE7771331C75900786665 /* Sources */,
+				E7CAE7781331C75900786665 /* Frameworks */,
+				E7CAE7791331C75900786665 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WorldEditor;
+			productName = WorldEditor;
+			productReference = E7CAE77B1331C75900786665 /* WorldEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E7CAE7991331C75900786665 /* WorldEditorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7CAE7AE1331C75A00786665 /* Build configuration list for PBXNativeTarget "WorldEditorTests" */;
+			buildPhases = (
+				E7CAE7951331C75900786665 /* Sources */,
+				E7CAE7961331C75900786665 /* Frameworks */,
+				E7CAE7971331C75900786665 /* Resources */,
+				E7CAE7981331C75900786665 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7CAE79D1331C75900786665 /* PBXTargetDependency */,
+			);
+			name = WorldEditorTests;
+			productName = WorldEditorTests;
+			productReference = E7CAE79A1331C75900786665 /* WorldEditorTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1479,6 +1626,7 @@
 				Japanese,
 				French,
 				German,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -1486,6 +1634,8 @@
 			targets = (
 				1D6058900D05DD3D006BFB54 /* lander */,
 				506EE05D10304ED200A389B3 /* cocos2d libraries */,
+				E7CAE77A1331C75900786665 /* WorldEditor */,
+				E7CAE7991331C75900786665 /* WorldEditorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1522,7 +1672,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E7CAE7791331C75900786665 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7CAE7881331C75900786665 /* InfoPlist.strings in Resources */,
+				E7CAE78E1331C75900786665 /* Credits.rtf in Resources */,
+				E7CAE7941331C75900786665 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7CAE7971331C75900786665 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7CAE7A31331C75900786665 /* InfoPlist.strings in Resources */,
+				E7CAE7A61331C75900786665 /* WorldEditorTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E7CAE7981331C75900786665 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
@@ -1680,6 +1865,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E7CAE7771331C75900786665 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7CAE78B1331C75900786665 /* main.m in Sources */,
+				E7CAE7911331C75900786665 /* WorldEditorAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7CAE7951331C75900786665 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7CAE7A81331C75900786665 /* WorldEditorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1688,7 +1890,47 @@
 			target = 506EE05D10304ED200A389B3 /* cocos2d libraries */;
 			targetProxy = 506EE1A71030507B00A389B3 /* PBXContainerItemProxy */;
 		};
+		E7CAE79D1331C75900786665 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7CAE77A1331C75900786665 /* WorldEditor */;
+			targetProxy = E7CAE79C1331C75900786665 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E7CAE7861331C75900786665 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7CAE7871331C75900786665 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E7CAE78C1331C75900786665 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7CAE78D1331C75900786665 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		E7CAE7921331C75900786665 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7CAE7931331C75900786665 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		E7CAE7A11331C75900786665 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7CAE7A21331C75900786665 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -1819,6 +2061,110 @@
 			};
 			name = Release;
 		};
+		E7CAE7A91331C75900786665 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WorldEditor/WorldEditor-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "WorldEditor/WorldEditor-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E7CAE7AA1331C75900786665 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WorldEditor/WorldEditor-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "WorldEditor/WorldEditor-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E7CAE7AB1331C75900786665 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WorldEditor.app/Contents/MacOS/WorldEditor";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WorldEditorTests/WorldEditorTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "WorldEditorTests/WorldEditorTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E7CAE7AC1331C75900786665 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WorldEditor.app/Contents/MacOS/WorldEditor";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WorldEditorTests/WorldEditorTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "WorldEditorTests/WorldEditorTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1848,6 +2194,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E7CAE7AD1331C75A00786665 /* Build configuration list for PBXNativeTarget "WorldEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7CAE7A91331C75900786665 /* Debug */,
+				E7CAE7AA1331C75900786665 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E7CAE7AE1331C75A00786665 /* Build configuration list for PBXNativeTarget "WorldEditorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7CAE7AB1331C75900786665 /* Debug */,
+				E7CAE7AC1331C75900786665 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

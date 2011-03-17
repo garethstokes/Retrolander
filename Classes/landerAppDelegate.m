@@ -11,7 +11,6 @@
 #import "landerAppDelegate.h"
 #import "GameConfig.h"
 #import "RootViewController.h"
-#import "GameScene.h"
 #import "EntryScene.h"
 
 @implementation landerAppDelegate
