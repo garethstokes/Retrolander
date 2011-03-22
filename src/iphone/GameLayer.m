@@ -21,9 +21,12 @@
 {
   if ((self=[super init]))
   {
+    #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
     self.isTouchEnabled = YES;
     self.isAccelerometerEnabled = YES;
-    
+      [[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 30)]; 
+    #endif
+      
     // create and initialize a Label
     CGSize size = [[CCDirector sharedDirector] winSize];
     _label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:18];
@@ -36,7 +39,7 @@
     
     [self schedule: @selector(step:)];
 		
-    [[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 30)]; 
+    
       
       _cameraPosition = [_player position];
       [self.camera setCenterX:_cameraPosition.x - 240 centerY:_cameraPosition.y - 160 centerZ:0];
@@ -143,10 +146,10 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
 		cpBody *staticBody = cpBodyNew(INFINITY, INFINITY);
 		
 		shape = cpSpaceAddShape(_worldSpace, 
-														cpPolyShapeNew(staticBody, 
-																					 [stuff count], 
-																					 points, 
-																					 CGPointZero));
+								cpPolyShapeNew(staticBody, 
+											   [stuff count], 
+                                               points, 
+                                               CGPointZero));
 		shape->e = 0.0f; 
 		shape->u = 0.0f;  
 		shape->group = 1;
@@ -162,15 +165,12 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
   _landingPad = [[LandingPad alloc] initAgainst:_worldSpace];
 }
 
--(void) registerWithTouchDispatcher
-{
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-}
-
 -(void) onEnter
 {
-	[super onEnter];	
+	[super onEnter];
+	#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / 30)];
+    #endif
 }
 
 - (void) CheckForCrash
@@ -272,6 +272,12 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
     }
 }
 
+#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+-(void) registerWithTouchDispatcher
+{
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	[_player setIsThrusting:NO];
 }
@@ -298,6 +304,8 @@ static void drawStaticObject(cpShape *shape, GameLayer *gameLayer)
   float angle = accelY * 4;
   [_player setAngle:angle - (angle * 2)];
 }
+
+#endif
 
 - (void) pause
 {

@@ -42,12 +42,12 @@
   
   _parent = parent;
   
-  _flameParticles = [CCParticleSystemQuad particleWithFile:@"flame.plist"];
+  _flameParticles = [CCParticleSystemQuad particleWithFile:@"particles/flame.plist"];
   [_flameParticles setPosition:CGPointMake([self position].x, [self position].y - 15)];
   [_flameParticles setScale:.4];
   [_parent addChild:_flameParticles z:-2];
   
-  _exhaust = [CCParticleSystemQuad particleWithFile:@"exhaust.plist"];
+  _exhaust = [CCParticleSystemQuad particleWithFile:@"particles/exhaust.plist"];
   [_exhaust setPosition:CGPointMake([self position].x, [self position].y - 50)];
   [_exhaust setScale:.2];
   [_parent addChild:_exhaust z:-1];
@@ -145,10 +145,12 @@
 - (void) explode
 {
   if (_explosion == nil) {
-    _explosion = [CCParticleSystemQuad particleWithFile:@"explosion.plist"];
+      
+    _explosion = [CCParticleSystemQuad particleWithFile:@"particles/explosion.plist"];
     [_explosion setPosition:[self position]];
     //[explosion setScale:.4];
     [_parent addChild:_explosion];
+      
   }
 }
 

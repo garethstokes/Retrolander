@@ -13,12 +13,14 @@
 
 - (id) init
 {
-  if (!(self = [super init])) return nil;
-  
-  _particleSystem = [CCParticleSystemQuad particleWithFile:@"Space.plist"];
-  [self addChild:_particleSystem];
-  
-  return self;
+    if (!(self = [super init])) return nil;
+
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Space" ofType:@"plist" inDirectory:@"particles"];
+
+    _particleSystem = [CCParticleSystemQuad particleWithFile:path];
+    [self addChild:_particleSystem];
+
+    return self;
 }
 
 @end

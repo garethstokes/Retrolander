@@ -101,13 +101,19 @@
   };
   
   glPushMatrix();
+    glDisable(GL_COLOR_ARRAY);
+    glDisable(GL_TEXTURE_2D); 
+    glDisable(GL_TEXTURE_COORD_ARRAY);
   
   glVertexPointer(2, GL_FLOAT, 0, line);
   glEnableClientState(GL_VERTEX_ARRAY);
   
   glLineWidth(5.0f);
   glDrawArrays(GL_LINES, 0, 2);
-  
+
+    glEnable(GL_COLOR_ARRAY);
+    glEnable(GL_TEXTURE_2D); 
+    glEnable(GL_TEXTURE_COORD_ARRAY);
   glPopMatrix();
   
   glLineWidth(1.0f);

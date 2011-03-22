@@ -27,8 +27,8 @@
 	_gameLayer = nil;
 	_background = nil;
   
-  _levelId = levelID;
-  _worldId = worldID;
+    _levelId = levelID;
+    _worldId = worldID;
 	
 	return self;	
 }

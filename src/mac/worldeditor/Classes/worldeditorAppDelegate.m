@@ -7,7 +7,7 @@
 //
 
 #import "worldeditorAppDelegate.h"
-#import "HelloWorldLayer.h"
+#import "GameScene.h"
 
 @implementation worldeditorAppDelegate
 @synthesize window=window_, glView=glView_;
@@ -29,7 +29,7 @@
 	[window_ setAcceptsMouseMovedEvents:NO];
 	
 	
-	[director runWithScene:[HelloWorldLayer scene]];
+	[director runWithScene:[Game scene:1 levelID:1]];
 }
 
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication
