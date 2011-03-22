@@ -30,6 +30,7 @@
 	
 	
 	[director runWithScene:[Game scene:1 levelID:1]];
+    [[CCDirector sharedDirector] pause];
 }
 
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication

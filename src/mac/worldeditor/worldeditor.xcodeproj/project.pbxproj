@@ -274,6 +274,8 @@
 		E71FAC441337152200EBBBD5 /* SpaceBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = E71FAC311337152200EBBBD5 /* SpaceBackground.m */; };
 		E71FAC451337152200EBBBD5 /* StaticObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E71FAC331337152200EBBBD5 /* StaticObject.m */; };
 		E71FAC461337152200EBBBD5 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = E71FAC351337152200EBBBD5 /* World.m */; };
+		E75969AB1338CD2B00C261C2 /* particles in Resources */ = {isa = PBXBuildFile; fileRef = E75969AA1338CD2B00C261C2 /* particles */; };
+		E75969AD1338CD3800C261C2 /* worlds in Resources */ = {isa = PBXBuildFile; fileRef = E75969AC1338CD3800C261C2 /* worlds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -580,6 +582,8 @@
 		E71FAC331337152200EBBBD5 /* StaticObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticObject.m; sourceTree = "<group>"; };
 		E71FAC341337152200EBBBD5 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		E71FAC351337152200EBBBD5 /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
+		E75969AA1338CD2B00C261C2 /* particles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = particles; path = ../../../Resources/particles; sourceTree = "<group>"; };
+		E75969AC1338CD3800C261C2 /* worlds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = worlds; path = ../../../Resources/worlds; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -661,6 +665,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E75969AC1338CD3800C261C2 /* worlds */,
+				E75969AA1338CD2B00C261C2 /* particles */,
 				E02A83F0129F01DF00341C97 /* MainMenu.xib */,
 				E02A83EE129F01DF00341C97 /* InfoPlist.strings */,
 				E02A83EB129F01DF00341C97 /* worldeditor_Prefix.pch */,
@@ -1307,6 +1313,8 @@
 				E02A83F7129F01DF00341C97 /* MainMenu.xib in Resources */,
 				E02A83F8129F01DF00341C97 /* fps_images.png in Resources */,
 				E02A8529129F109200341C97 /* icon.icns in Resources */,
+				E75969AB1338CD2B00C261C2 /* particles in Resources */,
+				E75969AD1338CD3800C261C2 /* worlds in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
